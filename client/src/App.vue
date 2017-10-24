@@ -2,11 +2,7 @@
   <div id="app">
     <nav-bar></nav-bar>
     <router-view></router-view>
-    <footer>
-      <div class="container">
-        PLACEHOLDER
-      </div>
-    </footer>
+    <footer-vue></footer-vue>
   </div>
 </template>
 <script>
@@ -14,6 +10,7 @@ import Home from '@/router/Home'
 import { checkUser } from '@/api/auth'
 import { checkAnnounce } from '@/api/data'
 import NavBar from '@/components/NavBar'
+import FooterVue from '@/components/FooterVue'
 export default {
   name: 'app',
   data() {
@@ -24,7 +21,7 @@ export default {
     checkUser(this.$root)
     checkAnnounce(this.$root)
   },
-  components: { Home, NavBar }
+  components: { Home, NavBar, FooterVue }
 }
 
 </script>

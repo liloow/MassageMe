@@ -56,8 +56,11 @@ passport.use(strategy);
 
 
 const auth = require('./routes/auth')
+const data = require('./routes/data')
 
 app.use('/api', auth)
+app.use('/api/data', data)
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
