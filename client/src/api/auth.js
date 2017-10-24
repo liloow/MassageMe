@@ -10,6 +10,7 @@ function errHandler(err) {
 
 export function signup(userInfo) { return api.post('/signup', userInfo).then(response => { return response.data; }) }
 
+
 export function login(username, password, vm) {
 	return api.post('/login', { username, password })
 		.then(response => {
@@ -44,3 +45,4 @@ export function checkUser(vm) {
 		vm.user = user;
 	}
 }
+

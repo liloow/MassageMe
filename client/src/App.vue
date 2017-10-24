@@ -1,41 +1,45 @@
 <template>
   <div id="app">
-    <nav>
-      <ul>
-        <li><a href="/" title="Home">Home</a></li>
-        <li v-if="!$root.user"><a href="/login" title="Login">Login</a></li>
-        <li v-if="!$root.user"><a href="/signup" title="Signup">Signup</a></li>
-        <li v-else><a @click.prevent="logout" href="/logout" title="Lougout">Logout</a></li>
-      </ul>
-    </nav>
-    <h1>MassageMe</h1>
-  <router-view></router-view>
+    <nav-bar></nav-bar>
+    <router-view></router-view>
+    <footer>
+      <div class="container">
+        PLACEHOLDER
+      </div>
+    </footer>
   </div>
 </template>
-
 <script>
 import Home from '@/router/Home'
-import {checkUser,logout} from '@/api/auth'
+import { checkUser } from '@/api/auth'
+import { checkAnnounce } from '@/api/data'
+import NavBar from '@/components/NavBar'
 export default {
   name: 'app',
   data() {
-    return {
-      isLoggedIn:false
-    }
+    return {}
   },
-  methods: {
-    logout() {
-      logout(this.$root)
-    }
-  },
-  created () {
+  methods: {},
+  created() {
     checkUser(this.$root)
-      if (this.$root.user) this.isLoggedIn=true
+    checkAnnounce(this.$root)
   },
-  components: {Home}
+  components: { Home, NavBar }
 }
-</script>
 
+</script>
+<style lang="scss">
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+$navbar-height: 3.7rem;
+$navbar-item-img-max-height: 100%;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+</style>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -43,6 +47,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
 </style>
