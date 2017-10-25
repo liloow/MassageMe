@@ -10,6 +10,7 @@ import Pricing from '@/router/Pricing'
 import Voucher from '@/router/Voucher'
 import Contact from '@/router/Contact'
 import Business from '@/router/Business'
+import Reserve from '@/router/Reserve'
 
 
 
@@ -65,6 +66,10 @@ const router = new Router({
 		{
 			path: '/pricing',
 			component: Pricing
+		},
+		{
+			path: '/reserve',
+			component: Reserve
 		},
 	]
 })
