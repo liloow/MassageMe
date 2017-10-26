@@ -19,7 +19,8 @@
     "vue-datepicker-local": "^1.0.7",
     "vue-event-calendar": "^1.4.13",
     "vue-router": "^3.0.1",
-    "vue-stripe": "^0.1.42"
+    "vue-stripe": "^0.1.42",
+    "vue-stripe-elements": "^0.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

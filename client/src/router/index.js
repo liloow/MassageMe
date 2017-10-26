@@ -60,7 +60,7 @@ const router = new Router({
 			component: Contact
 		},
 		{
-			path: '/Voucher',
+			path: '/vouchers',
 			component: Voucher
 		},
 		{

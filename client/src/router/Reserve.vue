@@ -15,6 +15,7 @@
 			</div>
 		</div>
 		<div class="row">
+			<massage-selection @goToDate="goToDate($event)" v-if="step.massageSelection"></massage-selection>
 			<date-selection @goToMasseuse="goToMasseuse($event)" v-if="step.dateSelection"></date-selection>
 			<slot-selection v-if="step.slotSelection"></slot-selection>
 			<masseuse-selection v-if="step.masseuseSelection" :event="data.event" @selectedMasseuse="goToPayment($event)"></masseuse-selection>
@@ -36,6 +37,7 @@ import PaymentMode from '@/components/reservation/PaymentMode'
 import ConfirmationSelection from '@/components/reservation/ConfirmationSelection'
 import RecapInfo from '@/components/reservation/RecapInfo'
 import ProgressBar from '@/components/reservation/ProgressBar'
+import MassageSelection from '@/components/reservation/MassageSelection'
 export default {
 
 	name: 'Reserve',
@@ -43,7 +45,8 @@ export default {
 	data() {
 		return {
 			step: {
-				dateSelection: true,
+				massageSelection: true,
+				dateSelection: false,
 				slotSelection: false,
 				masseuseSelection: false,
 				paymentMode: false,
@@ -57,6 +60,7 @@ export default {
 				date: null,
 				slot: null,
 				masseuse: null,
+				massage: null,
 			}
 		}
 	},
@@ -72,9 +76,14 @@ export default {
 			this.step.masseuseSelection = false
 			this.step.paymentMode = true
 			this.reservation.masseuse = event._id
+		},
+		goToDate(event) {
+			this.step.massageSelection = false
+			this.step.dateSelection = true
+			this.reservation.massage = event
 		}
 	},
-	components: { DateSelection, SlotSelection, MasseuseSelection, PaymentMode, ConfirmationSelection, RecapInfo, ProgressBar }
+	components: { DateSelection, SlotSelection, MasseuseSelection, PaymentMode, ConfirmationSelection, RecapInfo, ProgressBar, MassageSelection }
 };
 
 </script>

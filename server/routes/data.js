@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Masseuses = require('../models/masseuses')
 const Hourly = require('../models/hourly')
+const Massages = require('../models/massage')
 
 router.get('/masseuses', (req, res, next) => {
 	Masseuses.find({}).then(masseuses =>
@@ -41,6 +42,25 @@ router.patch('/payment', (req, res, next) => {
 			]
 		}, { $set: { 'masseuse.$.isbooked': true } }).then(slot => res.json(slot))
 		.catch(err => next(err))
+})
+
+router.get('/massages', (req, res, next) => {
+	Massages.find({}).then(massages =>
+		res.json(massages)
+	).catch(err => next(err))
+})
+
+
+router.get('/massage/:id', (req, res, next) => {
+	Massages.findById(req.params.id).then(massage =>
+		res.json(massage)
+	).catch(err => next(err))
+})
+
+router.get('/masseuse/:id', (req, res, next) => {
+	Masseuses.findById(req.params.id).then(masseuse =>
+		res.json(masseuse)
+	).catch(err => next(err))
 })
 
 module.exports = router;
