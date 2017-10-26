@@ -7,3 +7,9 @@ const api = axios.create({
 export function checkAnnounce(userType) { return null }
 
 export function getMasseuses() { return api.get("/data/masseuses").then(r => r.data) }
+
+export function getSlots() { return api.get("/data/slots").then(r => r.data) }
+
+export function processPayment(res) {
+	return api.patch('/data/payment', { res }).then(r => r.data)
+}

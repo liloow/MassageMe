@@ -1,3 +1,7 @@
+<style lang="css" scoped>
+
+
+</style>
 <template>
 	<div class="container">
 		<div class="row" id="order-summary">
@@ -11,15 +15,16 @@
 			</div>
 		</div>
 		<div class="row">
-			<date-selection v-if="step.dateSelection"></date-selection>
+			<date-selection @goToMasseuse="goToMasseuse($event)" v-if="step.dateSelection"></date-selection>
 			<slot-selection v-if="step.slotSelection"></slot-selection>
-			<masseuse-selection v-if="step.masseuseSelection"></masseuse-selection>
-			<payment-mode v-if="step.paymentMode"></payment-mode>
+			<masseuse-selection v-if="step.masseuseSelection" :event="data.event" @selectedMasseuse="goToPayment($event)"></masseuse-selection>
+			<payment-mode v-if="step.paymentMode" :reservation="reservation"></payment-mode>
 			<confirmation-selection v-if="step.confirmationSelection"></confirmation-selection>
 			<recap-info v-if="step.recapInfo"></recap-info>
 		</div>
 		<div class="row">
 			<progress-bar></progress-bar>
+			<pre>{{reservation}}</pre>
 		</div>
 	</div>
 </template>
@@ -38,7 +43,7 @@ export default {
 	data() {
 		return {
 			step: {
-				dateSelection: false,
+				dateSelection: true,
 				slotSelection: false,
 				masseuseSelection: false,
 				paymentMode: false,
@@ -46,14 +51,30 @@ export default {
 				recapInfo: false,
 			},
 			data: {
-
+				event: {}
+			},
+			reservation: {
+				date: null,
+				slot: null,
+				masseuse: null,
 			}
-		};
-	}
+		}
+	},
+	methods: {
+		goToMasseuse(event) {
+			this.data.event = event
+			this.step.dateSelection = false
+			this.step.masseuseSelection = true
+			this.reservation.date = event.date
+			this.reservation.slot = event.slot
+		},
+		goToPayment(event) {
+			this.step.masseuseSelection = false
+			this.step.paymentMode = true
+			this.reservation.masseuse = event._id
+		}
+	},
+	components: { DateSelection, SlotSelection, MasseuseSelection, PaymentMode, ConfirmationSelection, RecapInfo, ProgressBar }
 };
 
 </script>
-<style lang="css" scoped>
-
-
-</style>

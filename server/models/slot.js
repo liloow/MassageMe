@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Masseuses = require('../models/masseuses')
 
 
 
-const daySlotSchema = new Schema({
+const slotSchema = new Schema({
 	date: {
 		type: Date,
 		min: Date.now
@@ -93,4 +94,4 @@ const daySlotSchema = new Schema({
 })
 
 
-module.exports = mongoose.model('DaySlot', daySlotSchema);
+module.exports = mongoose.model('Slot', slotSchema);
