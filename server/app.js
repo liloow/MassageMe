@@ -14,8 +14,7 @@ const cors = require('cors')
 
 
 
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
-
+mongoose.connect(process.env.MONGODB_URI)
 
 const app = express();
 
@@ -66,6 +65,7 @@ app.use('/api/data', data)
 const clientRoot = path.join(__dirname, '../client/dist');
 app.use('/', express.static(clientRoot))
 app.use(history('index.html', { root: clientRoot }))
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
