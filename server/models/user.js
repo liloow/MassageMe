@@ -9,8 +9,11 @@ const userSchema = new Schema({
 	// we can add any extra information like facebooktokens (or
 	// others) as well as a picture, etc
 	name: String,
-	email: String,
-	orderHistory: Array,
+	email: String, // TODO: USE THIS INSTEAD OF USERNAME
+	orderHistory: [{
+
+	}],
+
 })
 
 userSchema.plugin(passportLocalMongoose);

@@ -5,7 +5,7 @@
 <template>
 	<div class="container">
 		<vue-event-calendar :events="slots">
-			<template scope="props">
+			<template slot-scope="props">
 				<div v-for="(item,index) in props.showEvents" class="event-item">
 					<button :disabled="item.available.length === 0 ? true : false" @click="goToMasseuse(index)">{{item.title}}</button>
 					<p>{{item.desc}}</p>

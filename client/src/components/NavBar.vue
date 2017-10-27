@@ -55,7 +55,9 @@
 	</nav>
 </template>
 <script>
+import { logout } from '@/api/auth'
 export default {
+
 	name: 'NavBar',
 	data() {
 		return {
