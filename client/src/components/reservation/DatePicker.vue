@@ -12,14 +12,12 @@
 				</div>
 			</template>
 		</vue-event-calendar>
-		<vue-datepicker-local v-model="time" :local="local" />
 		<pre>{{$data}}</pre>
 		<pre>{{slots}}</pre>
 	</div>
 </template>
 <script>
 import { getSlots } from '@/api/data'
-import VueDatepickerLocal from 'vue-datepicker-local'
 
 export default {
 
@@ -63,7 +61,7 @@ export default {
 			})
 		})
 	},
-	components: { VueDatepickerLocal }
+	components: {}
 }
 
 </script>

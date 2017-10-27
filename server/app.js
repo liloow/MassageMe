@@ -1,3 +1,5 @@
+require('dotenv').config()
+const history = require('connect-history-api-fallback')
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -12,7 +14,7 @@ const cors = require('cors')
 
 
 
-mongoose.connect("mongodb://localhost/massageme", { useMongoClient: true });
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
 
 const app = express();
@@ -61,6 +63,9 @@ const data = require('./routes/data')
 app.use('/api', auth)
 app.use('/api/data', data)
 
+const clientRoot = path.join(__dirname, '../client/dist');
+app.use('/', express.static(clientRoot))
+app.use(history('index.html', { root: clientRoot }))
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
