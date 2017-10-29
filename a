@@ -25,6 +25,7 @@ app.use(
 		origin: 'http://ironhack:8080',
 	})
 );
+
 passport.initialize();
 // Create the strategy for JWT
 const strategy = new Strategy({
