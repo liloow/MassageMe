@@ -10,7 +10,7 @@ const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 const cors = require('cors')
-
+const history = require('express-history-api-fallback')
 
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -20,7 +20,15 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+<<<<<<< HEAD
 //app.use(cors());
+=======
+//app.use(
+//	cors({
+//		origin: 'http://ironhack:8080',
+//	})
+);
+>>>>>>> 52701b21ce331c645dd9d468e93995b2705a486b
 passport.initialize();
 // Create the strategy for JWT
 const strategy = new Strategy({
