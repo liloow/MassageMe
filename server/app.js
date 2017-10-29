@@ -22,10 +22,10 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(
-	cors({
-		origin: 'http://ironhack:8080',
-	})
+//app.use(
+//	cors({
+//		origin: 'http://ironhack:8080',
+//	})
 );
 passport.initialize();
 // Create the strategy for JWT
@@ -60,6 +60,10 @@ const data = require('./routes/data')
 
 app.use('/api', auth)
 app.use('/api/data', data)
+
+const clientRoot = path.join(__dirname, '../client/dist');
+app.use('/', express.static(clientRoot))
+app.use(history('index.html', { root: clientRoot }))
 
 
 // catch 404 and forward to error handler
