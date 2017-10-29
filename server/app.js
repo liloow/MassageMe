@@ -11,7 +11,6 @@ const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 const cors = require('cors')
 
-
 mongoose.connect(process.env.MONGODB_URI)
 
 const app = express();
