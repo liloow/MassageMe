@@ -1,24 +1,25 @@
 <template>
-	<div class="container">
-		<div class="row">
-			<h2>BAR PLACEHOLDER</h2>
-		</div>
-	</div>
+<div class="container">
+  <div class="row">
+    <h2>BAR PLACEHOLDER</h2>
+  </div>
+</div>
+
 </template>
+
 <script>
 export default {
 
-	name: 'ProgressBar',
+  name: 'ProgressBar',
 
-	data() {
-		return {
+  data() {
+    return {
 
-		};
-	}
+    }
+  }
 };
 
 </script>
-<style lang="css" scoped>
 
-
+<style lang="css" scoped="">
 </style>

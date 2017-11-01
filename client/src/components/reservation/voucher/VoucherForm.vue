@@ -1,99 +1,156 @@
 <style lang="css" scoped>
+article {
+    width: 600px%;
+    max-width: 90%;
+    margin: auto;
+    border: 2px solid yellow;
+    border-radius: 3%;
+    padding: 2%
+}
 
+.message-header {
+    border-radius: 1rem;
+    text-align: center;
+    margin: auto;
+}
 
+#addresse {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.img {
+    max-width: 80%
+}
+
+.columns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.column {
+    padding: 1rem;
+    margin: 1rem
+}
+
+.field {
+    margin-left: 0
+}
 </style>
 <template>
-	<div class="column">
-		<form @submit.prevent="registerVoucher" accept-charset="utf-8">
-			<label>Your name
-				<input v-model="voucher.senderName">
-			</label>
-			<br>
-			<label>Your E-mail
-				<input v-model="voucher.senderEmail">
-			</label>
-			<br>
-			<label>The gifted Name
-				<input v-model="voucher.recipientName">
-			</label>
-			<br>
-			<label>The sending method
-				<select v-model="voucher.method" placeholder="Sélectionner le type de livraison">
-					<option disabled>Sélectionner le type de livraison</option>
-					<option value="1">Je souhaite le transmettre par email</option>
-					<option value="2">Je souhaite recevoir un bon physique</option>
-				</select>
-			</label>
-			<div v-if="voucher.method==='2'">
-				<label>Addresse
-					<br>
-					<label>Nom :
-						<input v-model="voucher.recipientAddress.name">
-					</label>
-					<br>
-					<label>Adresse ligne 1 :
-						<input v-model="voucher.recipientAddress.line1">
-					</label>
-					<br>
-					<label>Adresse ligne 2 :
-						<input v-model="voucher.recipientAddress.line2">
-					</label>
-					<br>
-					<label>Code Postal :
-						<input v-model="voucher.recipientAddress.postalCode">
-					</label>
-					<br>
-					<label>Ville :
-						<input v-model="voucher.recipientAddress.city">
-					</label>
-					<br>
-				</label>
-			</div>
-			<div v-if="voucher.method==='1'">
-				<label>Recipient email :
-					<input type="email">
-				</label>
-			</div>
-			<label>Your Message :
-				<br>
-				<textarea cols="50" row="5" v-model="voucher.message"></textarea>
-			</label>
-			<br>
-			<button type="submit">Réserver</button>
-		</form>
-	</div>
+    <div class="container">
+        <div class="container">
+            <div class=" row content">
+                <article class="message is-warning">
+                    <div class="row message-header ">
+                        <h2>Reservez votre bon cadeau</h2>
+                    </div>
+                    <div class=" columns">
+                        <div class="column is-narrow-desktop img">
+                            <img src="../../../assets/gift.jpeg" alt="Gift Image" id="gift">
+                        </div>
+                        <div class="column ">
+                            <b-field grouped>
+                                <b-field label="Your info" expanded>
+                                    <b-input icon="person" placeholder="Name" expanded></b-input>
+                                </b-field>
+                            </b-field>
+                            <b-field expanded>
+                                <b-input icon="mail" placeholder="some@email.com"></b-input>
+                            </b-field>
+                            </b-field>
+                            <b-field label="Destinataire">
+                            </b-field>
+                            <b-field grouped>
+                                <b-field>
+                                    <b-select placeholder="Title">
+                                        <option>Mr.</option>
+                                        <option>Ms.</option>
+                                    </b-select>
+                                </b-field>
+                                <b-field expanded>
+                                    <b-input placeholder="Prenom"></b-input>
+                                    <b-input placeholder="Nom"></b-input>
+                                </b-field>
+                            </b-field>
+                            <b-field grouped>
+                                <b-field>
+                                    <b-radio-button v-model="voucher.method" native-value="1" type="is-danger">
+                                        <b-icon icon="email"></b-icon>
+                                        <span>E-MAIL</span>
+                                    </b-radio-button>
+                                </b-field>
+                                <b-field>
+                                    <b-radio-button v-model="voucher.method" native-value="2" type="is-success">
+                                        <b-icon icon="card_giftcard"></b-icon>
+                                        <span>COURRIER (+1EUR)</span>
+                                    </b-radio-button>
+                                </b-field>
+                            </b-field>
+                            <b-field v-if="voucher.method==='1'">
+                                <b-input v-model="voucher.recipientEmail" placeholder="Email de destination" icon="mail" type="email"></b-input>
+                            </b-field>
+                            <b-field grouped id="addresse" v-if="voucher.method==='2'">
+                                <b-field label="Adresse : " grouped>
+                                    <b-input v-model="voucher.recipientAddress.line1"></b-input>
+                                </b-field>
+                                <b-field label="Adresse 2 : " grouped>
+                                    <b-input v-model="voucher.recipientAddress.line2"></b-input>
+                                </b-field>
+                                <b-field label="Code Postal">
+                                    <b-input v-model="voucher.recipientAddress.postalCode"></b-input>
+                                </b-field>
+                                <b-field label="Ville">
+                                    <b-input v-model="voucher.recipientAddress.city"></b-input>
+                                </b-field>
+                            </b-field grouped>
+                            </b-field>
+                            <b-field label="Message" v-model="voucher.message">
+                                <b-input maxlength="500" type="textarea"></b-input>
+                            </b-field>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <button type="submit">Réserver</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
 </template>
 <script>
 export default {
 
-	name: 'VoucherForm',
+    name: 'VoucherForm',
 
-	data() {
-		return {
-			voucher: {
-				senderName: this.$root.user.name || '',
-				senderEmail: this.$root.user.email || '',
-				recipientName: '',
-				method: 'Sélectionner le type de livraison',
-				recipientAddress: {
-					name: this.$root.user.name || '',
-					line1: '',
-					line2: '',
-					postalCode: '4000',
-					city: 'Liège',
+    data() {
+        return {
+            voucher: {
+                senderName: this.$root.user.name ? this.$root.user.name : '',
+                senderEmail: this.$root.user.email ? this.$root.user.email : '',
+                recipientName: '',
+                method: 'Sélectionner le type de livraison',
+                recipientAddress: {
+                    name: this.$root.user.name || '',
+                    line1: '',
+                    line2: '',
+                    postalCode: '4000',
+                    city: 'Liège',
 
-				},
-				recipientEmail: '',
-				message: ''
-			}
-		}
-	},
-	methods: {
-		registerVoucher() {
-			this.$emit('goToConfirm', this.voucher)
-			return 'LOL'
-		}
-	}
+                },
+                recipientEmail: '',
+                message: ''
+            }
+        }
+    },
+    methods: {
+        registerVoucher() {
+            this.$emit('goToConfirm', this.voucher)
+            return 'LOL'
+        }
+    }
 };
-
 </script>

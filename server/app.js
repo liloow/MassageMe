@@ -18,10 +18,15 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(
-//	cors({
-//		origin: 'http://ironhack:8080',
-//	})
+if (process.env.NODE_ENV !== 'production') {
+	app.use(
+		cors({
+			// Only allow the vue application access this server
+			origin: "http://localhost:8080"
+		})
+	);
+}
+
 passport.initialize();
 // Create the strategy for JWT
 const strategy = new Strategy({

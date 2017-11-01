@@ -9,6 +9,12 @@ import router from './router'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 
+//ELEMENTS
+
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+
 //MATERIAL ICONS
 
 import 'vue-awesome/icons'
@@ -22,13 +28,30 @@ Vue.use(vueEventCalendar, { locale: 'en' })
 
 //STRIPE
 
-import { StripeCheckout } from 'vue-stripe'
+import VueStripeCheckout from 'vue-stripe-checkout';
+
+// base/global options
+// these options can be overridden 
+// by the options in the .open(options) 
+// function.
+const options = {
+	key: 'pk_test_hRfWeiE7MuT5fINhdlIWyh9n',
+	image: 'https://cdn.meme.am/images/100x100/15882140.jpg',
+	locale: 'auto',
+	currency: 'EUR',
+	billingAddress: true,
+	panelLabel: 'Confirm'
+}
+
 
 
 
 Vue.use(Buefy)
 Vue.component('icon', Icon)
 Vue.config.productionTip = false
+Vue.use(Element, { size: 'small' })
+Vue.use(VueStripeCheckout, options);
+
 
 /* eslint-disable no-new */
 new Vue({

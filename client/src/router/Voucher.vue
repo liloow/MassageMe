@@ -1,76 +1,86 @@
 <style lang="css" scoped>
-img {
-	width: 75%;
-}
-
-.column {
-	display: flex;
-	align-items: center
-}
-
 </style>
 <template>
-	<div class="container">
-		<div class="container">
-			<div class="row">
-				<div>
-					<h2>TITLE</h2>
-				</div>
-				<div>
-					<h3>SUB</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="columns">
-					<div class="column">
-						<img src="../assets/gift.jpeg" alt="Gift Image">
-					</div>
-					<voucher-form @goToConfirm="goToConfirm($event)" v-if="step.fillForm"></voucher-form>
-					<voucher-confirm @goToPayment="goToPayment($event)" v-if="step.verifyInfo" :voucher="voucher"></voucher-confirm>
-					<voucher-pay @processPayment="goToSuccess($event)" v-if="step.paymentMode" :voucher="voucher"></voucher-pay>
-				</div>
-			</div>
-			<div class="row">
-				<pre>{{voucher}}</pre>
-			</div>
-		</div>
-	</div>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <h2>TITLE</h2>
+                </div>
+                <div>
+                    <h3>SUB</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="columns">
+                    <div class="column">
+                        <horizontal-stepper :steps="steps" @completed-step="completeStep" @active-step="isStepActive" @stepper-finished="alert">
+                        </horizontal-stepper>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 <script>
+import HorizontalStepper from 'vue-stepper';
+
+// This components will have the content for each stepper step.
 import VoucherForm from '@/components/reservation/voucher/VoucherForm'
 import VoucherConfirm from '@/components/reservation/voucher/VoucherConfirm'
 import VoucherPay from "@/components/reservation/voucher/VoucherPay"
+
 export default {
-
-	name: 'Voucher',
-
-	data() {
-		return {
-			step: {
-				fillForm: true,
-				verifyInfo: false,
-				paymentMode: false,
-				successMessage: false,
-			},
-			voucher: null
-		}
-	},
-	methods: {
-		goToConfirm(voucher) {
-			this.voucher = voucher
-			this.step.fillForm = false
-			this.step.verifyInfo = true
-		},
-		goToPayment(voucher) {
-			this.step.verifyInfo = false
-			this.paymentMode = true
-		},
-		goToSuccess(voucher) {
-			this.paymentMode = false
-			this.successMessage = true //TODO : HANDLE FAIL
-		}
-	},
-	components: { VoucherForm, VoucherConfirm, VoucherPay }
+    name: 'Sandbox',
+    data() {
+        return {
+            steps: [{
+                icon: 'date_range',
+                name: 'VoucherForm',
+                title: 'Form',
+                component: VoucherForm,
+                completed: false
+            }, {
+                icon: 'date_range',
+                name: 'VoucherConfirm',
+                title: 'Confirm',
+                component: VoucherConfirm,
+                completed: false
+            }, {
+                icon: 'date_range',
+                name: 'VoucherPay',
+                title: 'Pay',
+                component: VoucherPay,
+                completed: false
+            }]
+        }
+    },
+    methods: {
+        // Executed when @completed-step event is triggered
+        completeStep(payload) {
+            this.steps.forEach((step) => {
+                if (step.name === payload.name) {
+                    step.completed = true;
+                }
+            })
+        },
+        // Executed when @active-step event is triggered
+        isStepActive(payload) {
+            this.steps.forEach((step) => {
+                if (step.name === payload.name) {
+                    if (step.completed === true) {
+                        step.completed = false;
+                    }
+                }
+            })
+        },
+        // Executed when @stepper-finished event is triggered
+        alert(payload) {
+            alert('end')
+        }
+    },
+    components: {
+        HorizontalStepper
+    },
 }
-
 </script>

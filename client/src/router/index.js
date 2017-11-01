@@ -11,6 +11,7 @@ import Voucher from '@/router/Voucher'
 import Contact from '@/router/Contact'
 import Business from '@/router/Business'
 import Reserve from '@/router/Reserve'
+import Sandbox from '@/router/Sandbox'
 
 
 
@@ -70,6 +71,9 @@ const router = new Router({
 		{
 			path: '/reserve',
 			component: Reserve
+		}, {
+			path: '/sandbox',
+			component: Sandbox
 		},
 	]
 })

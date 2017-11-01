@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost:27017/massageme');
 
 
 const hourlyData = [{
-	date: new Date(Date.UTC(2017, 9, 28)),
+	date: new Date(Date.UTC(2017, 10, 28)),
 	slot: '08:30',
 	masseuse: [{
 			_id: '59f1adabcc2a1e62cc6da446',
@@ -22,7 +22,7 @@ const hourlyData = [{
 		}
 	]
 }, {
-	date: Date.UTC(2017, 9, 28),
+	date: Date.UTC(2017, 10, 28),
 	slot: '10:00',
 	masseuse: [{
 			_id: '59f1adabcc2a1e62cc6da446',
@@ -38,7 +38,7 @@ const hourlyData = [{
 		}
 	]
 }, {
-	date: Date.UTC(2017, 9, 28),
+	date: Date.UTC(2017, 10, 28),
 	slot: '11:30',
 	masseuse: [{
 			_id: '59f1adabcc2a1e62cc6da446',
