@@ -9,12 +9,6 @@ import router from './router'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 
-//ELEMENTS
-
-import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-
-
 //MATERIAL ICONS
 
 import 'vue-awesome/icons'
@@ -43,14 +37,17 @@ const options = {
 	panelLabel: 'Confirm'
 }
 
+const logF = function log(e) {
+	console.log(e)
+}
 
 
 
 Vue.use(Buefy)
 Vue.component('icon', Icon)
 Vue.config.productionTip = false
-Vue.use(Element, { size: 'small' })
 Vue.use(VueStripeCheckout, options);
+Vue.use(logF)
 
 
 /* eslint-disable no-new */
@@ -60,6 +57,7 @@ new Vue({
 		user: null,
 	},
 	router,
+
 	template: '<App/>',
 	components: { App }
 })

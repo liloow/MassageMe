@@ -17,3 +17,5 @@ export function getMassages() { return api.get("/data/massages").then(r => r.dat
 export function getMassage(id) { return api.get(`/data/massage/${id}`).then(r => r.data) }
 
 export function getMasseuse(id) { return api.get(`/data/masseuse/${id}`).then(r => r.data) }
+
+export function getCities(id) { return api.get(`/data/cities`).then(r => r.data) }

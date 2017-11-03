@@ -1,12 +1,3 @@
-<style lang="scss">
-// Import Bulma's core
-@import "~bulma/sass/utilities/_all";
-$navbar-height: 3.7rem;
-$navbar-item-img-max-height: 100%;
-// Import Bulma and Buefy styles
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
-</style>
 <style>
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -36,7 +27,9 @@ export default {
 
         }
     },
-    methods: {},
+    methods: {
+
+    },
     created() {
         checkUser(this.$root)
         checkAnnounce(this.$root)

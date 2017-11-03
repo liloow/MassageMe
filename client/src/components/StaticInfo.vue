@@ -1,22 +1,19 @@
+<style lang="css" scoped>
+</style>
 <template>
-	<div class="container">
-		PLACEHOLDER STATIC CONTENT
-	</div>
 </template>
 <script>
 export default {
 
-	name: 'StaticInfo',
+    name: 'StaticInfo',
 
-	data() {
-		return {
+    data() {
+        return {
+            text: '',
+        }
+    },
+    methods: {
 
-		};
-	}
-};
-
+    }
+}
 </script>
-<style lang="css" scoped>
-
-
-</style>

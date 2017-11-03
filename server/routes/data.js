@@ -3,6 +3,8 @@ const router = express.Router();
 const Masseuses = require('../models/masseuses')
 const Hourly = require('../models/hourly')
 const Massages = require('../models/massage')
+const City = require('../models/city')
+
 
 router.get('/masseuses', (req, res, next) => {
 	Masseuses.find({}).then(masseuses =>
@@ -62,5 +64,13 @@ router.get('/masseuse/:id', (req, res, next) => {
 		res.json(masseuse)
 	).catch(err => next(err))
 })
+
+router.get('/cities', (req, res, next) => {
+	City.find({}).then(cities =>
+		res.json(cities)
+	).catch(err => next(err))
+})
+
+
 
 module.exports = router;

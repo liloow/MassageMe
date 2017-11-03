@@ -6,7 +6,11 @@ const masseuseSchema = new Schema({ // TODO : Etoffer
 	name: String,
 	email: String,
 	bio: String,
-	avatar: String
+	avatar: String,
+	city: {
+		type: String,
+		required: true
+	}
 })
 
 
