@@ -2,21 +2,11 @@
 </style>
 <template>
     <section class="section">
-        <div class="container">
-            <div class="row">
-                <div>
-                    <h2>TITLE</h2>
-                </div>
-                <div>
-                    <h3>SUB</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="columns">
-                    <div class="column">
-                        <horizontal-stepper :steps="steps" @completed-step="completeStep" @active-step="isStepActive" @stepper-finished="alert">
-                        </horizontal-stepper>
-                    </div>
+        <div class="row">
+            <div class="columns">
+                <div class="column">
+                    <horizontal-stepper :steps="steps" @completed-step="completeStep" @active-step="isStepActive" @stepper-finished="alert">
+                    </horizontal-stepper>
                 </div>
             </div>
         </div>
