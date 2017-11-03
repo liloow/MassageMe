@@ -37,17 +37,17 @@ const options = {
 	panelLabel: 'Confirm'
 }
 
-const logF = function log(e) {
-	console.log(e)
-}
+import VModal from 'vue-js-modal'
 
 
 
+
+
+Vue.use(VModal)
 Vue.use(Buefy)
 Vue.component('icon', Icon)
 Vue.config.productionTip = false
 Vue.use(VueStripeCheckout, options);
-Vue.use(logF)
 
 
 /* eslint-disable no-new */

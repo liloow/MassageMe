@@ -1,7 +1,19 @@
-<style>
+<style lang="scss">
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
+
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+$orange:#ff9a58;
+$orange-invert: findColorInvert($orange);
+$colors:( "primary":($orange, $orange-invert));
+$navbar-height: 3.7rem;
+$navbar-item-img-max-height: 3.7rem;
+$navbar-background-color:$orange;
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
 </style>
 <template>
     <div id="app">

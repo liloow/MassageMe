@@ -3,7 +3,7 @@ article {
     width: 600px%;
     max-width: 90%;
     margin: auto;
-    border: 2px solid yellow;
+    border: 2px solid #ff9a58;
     border-radius: 3%;
     padding: 2%
 }
@@ -42,7 +42,7 @@ article {
     <div class="container">
         <div class="container">
             <div class=" row content">
-                <article class="message is-warning">
+                <article class="message is-primary">
                     <div class="row message-header ">
                         <h2>Reservez votre bon cadeau</h2>
                     </div>
@@ -113,7 +113,6 @@ article {
                     </div>
                 </article>
             </div>
-            <button type="submit">Réserver</button>
             </form>
         </div>
     </div>
