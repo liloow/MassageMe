@@ -1,15 +1,26 @@
 <style lang="css" scoped>
+.address-row{
+    background: url(https://images.unsplash.com/photo-1461766705442-58d58276121a?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+    background-size: cover;
+    background-position: center;
+}
 </style>
 <template>
-    <div class="container">
-        <div class="container">
+    <div class="">
+        <div class="">
             <announcement-bar v-if="$root.announcement">
             </announcement-bar>
         </div>
-        <h2 v-if="$root.user">Welcome back, {{$root.user.name}} </h2>
-        <h2 v-else>Welcome</h2>
         <div class="row">
-            <enter-address></enter-address>
+            <div class="columns address-row">
+            
+                <div class="column is-5">
+                    <enter-address></enter-address>
+                </div>
+                <div class="column">Auto</div>
+                <div class="column">Auto</div>
+            </div>
+
         </div>
         <div class="row">
             <static-info></static-info>

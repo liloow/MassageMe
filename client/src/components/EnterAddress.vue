@@ -161,7 +161,7 @@ p {
         <div class="card appointment">
             <header class="card-header">
                 <p class="card-header-title">
-                    Réserver un massage
+                    Réserver un massage à domicile
                 </p>
             </header>
             <div class="card-content">

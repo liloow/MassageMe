@@ -9,7 +9,8 @@ const masseuseSchema = new Schema({ // TODO : Etoffer
 	avatar: String,
 	city: {
 		type: String,
-		required: true
+		required: true,
+		default: "Liège"
 	}
 })
 
