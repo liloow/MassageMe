@@ -7,21 +7,19 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require("passport");
 const User = require("./models/user");
-const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 const cors = require('cors')
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
 
 const app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-if (process.env.NODE_ENV !== 'production') {
+if (app.get('env') === 'development') {
 	app.use(
 		cors({
-			// Only allow the vue application access this server
 			origin: "http://localhost:8080"
 		})
 	);
@@ -33,7 +31,7 @@ const strategy = new Strategy({
 		// this is a config we pass to the strategy
 		// it needs to secret to decrypt the payload of the
 		// token.
-		secretOrKey: config.jwtSecret,
+		secretOrKey: process.env.JWT_SECRET,
 		// This options tells the strategy to extract the token
 		// from the header of the request
 		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
@@ -79,7 +77,7 @@ app.use((err, req, res, next) => {
 	// return the error message only in development mode
 	res.json({
 		message: err.message,
-		error: req.app.get('env') === 'development' ? err.message : {}
+		error: req.app.get('env') === 'development' ? err.message : { message: 'Something went wrong with your request, please try again and if the problem persists, contact an administrator.' }
 	});
 });
 

@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../models/user');
 const jwt = require("jwt-simple");
 const passport = require("passport");
-const config = require("../config");
 
 router.post('/signup', (req, res, next) => {
   // extract the info we need from the body
@@ -60,7 +59,7 @@ router.post('/login', (req, res, next) => {
         // only the server is able to decrypt it
         // for the client, this is just a token, he knows that
         // he has to send it
-        const token = jwt.encode(payload, config.jwtSecret);
+        const token = jwt.encode(payload, process.env.JWT_SECRET);
         res.json({
           user: {
             name: user.name,
@@ -77,12 +76,6 @@ router.post('/login', (req, res, next) => {
   }
 });
 
-router.get('/secret',
-  passport.authenticate("jwt", config.jwtSession),
-  (req, res) => {
-    res.json(req.user);
-  }
-);
 
 
 module.exports = router;
