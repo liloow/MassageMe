@@ -168,8 +168,8 @@ p {
                 <div class="row">
                     <div class="column">
                         <b-field grouped position="is-centered">
-                            <b-field label="Enter your city">
-                                <b-autocomplete id="searchAuto" v-model="name" :data="filteredDataArray" placeholder="Check your city" icon="search" @select="el=> el ? checkCity(el) : el" size="is-large">
+                            <b-field label="Indiquez votre ville">
+                                <b-autocomplete id="searchAuto" v-model="name" :data="filteredDataArray" placeholder="Liège, Brussels, ..." icon="search" @select="el=> el ? checkCity(el) : el" size="is-large">
                                     <template @keyup.enter="log('q')" slot="empty">No results found</template>
                                 </b-autocomplete>
                             </b-field>
@@ -183,7 +183,7 @@ p {
                 <div class="column">
                     <div class="e-button">
                         <button class="btn button is-large" :class="state===0 ? false : state===1 ? 'is-loading' : false " @click="fakeSearch(0)">
-                            <span class="text">Check</span>
+                            <span class="text">Vérifier</span>
                             <span class="success-text">Yay!</span>
                         </button>
                     </div>
