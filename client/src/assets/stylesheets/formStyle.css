@@ -14,7 +14,6 @@
  }
 
  header {
-  background-color: #077ABC;
   color: #f9f9f9;
  }
 
@@ -132,7 +131,6 @@
  .controls button:hover+label,
  .controls select:focus+label,
  .controls select:hover+label {
-  color: #077ABC;
   cursor: text;
  }
 
