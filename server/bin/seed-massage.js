@@ -2,7 +2,7 @@ const Massage = require('../models/massage')
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/massageme');
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
 
 
 const massageData = [{
