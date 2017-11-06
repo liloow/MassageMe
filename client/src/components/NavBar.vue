@@ -1,70 +1,90 @@
 <style lang="css">
+.navbar-brand {
+  margin: 0 5vw;
+  padding: 0.5vh;
+}
+
+.navbar-item {
+  font-size: 1.35rem;
+}
 </style>
+
 <template>
-    <nav class="navbar">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <img src="../assets/logo.png" alt="MassageMe">
-            </a>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-start">
-                <div class="navbar-item">
-                    <a class="navbar-item  is-active" href="/">
-                        Home
-                    </a>
-                    <a class="navbar-item " href="/massages">
-                        Massages
-                     </a>
-                    <a class="navbar-item " href="/business">
-                        Massages en entreprise
-                     </a>
-                    <a class="navbar-item " href="/masseuses">
-                        Praticiens
-                     </a>
-                    <a class="navbar-item " href="/vouchers">
-                        Bon Cadeau
-                     </a>
-                    <a class="navbar-item " href="/price">
+<nav class="navbar border-3">
+  <div class="navbar-brand">
+    <router-link class="navbar-item"
+                 to="/">
+      <img src="../assets/img/logo/Full.svg"
+           alt="MassageMe"
+           class="brand">
+    </router-link>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start is-centered">
+      <div class="navbar-item">
+        <!-- <router-link class="navbar-item  is-active" to="/"> TODO : Keep or splice
+                        Home 
+                    </router-link> -->
+        <router-link class="navbar-item "
+                     to="/massages">
+          Massages
+        </router-link>
+        <router-link class="navbar-item "
+                     to="/business">
+          Massages en entreprise
+        </router-link>
+        <router-link class="navbar-item "
+                     to="/masseuses">
+          Praticiens
+        </router-link>
+        <router-link class="navbar-item "
+                     to="/vouchers">
+          Bon Cadeau
+        </router-link>
+        <!-- <router-link class="navbar-item " to="/price"> TODO : Splice or dice
                         Tarifs
-                     </a>
-                    <a class="navbar-item " href="/contact">
-                        Contact
-                     </a>
-                </div>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <a v-if="!$root.user.name" class="navbar-item " href="/login">
-                    Login
-                </a>
-                    <a v-if="!$root.user.name" class="navbar-item " href="/signup">
-                    Signup
-                </a>
-                    <a v-else @click.prevent="logout" class="navbar-item " href="/logout">
-                    Logout
-                </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+                     </router-link> -->
+        <router-link class="navbar-item "
+                     to="/contact">
+          Contact
+        </router-link>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <router-link v-if="!$root.user.name"
+                     class="navbar-item "
+                     to="/login">
+          Login / Signup
+        </router-link>
+        <router-link v-else
+                     @click.prevent="logout"
+                     class="navbar-item "
+                     to="/logout">
+          Logout
+        </router-link>
+      </div>
+    </div>
+  </div>
+</nav>
+
 </template>
+
 <script>
-import {
-    logout
-} from '@/api/auth'
+import { logout } from '@/api/auth';
 export default {
 
-    name: 'NavBar',
-    data() {
-        return {
-            isLoggedIn: false
-        }
-    },
-    methods: {
-        logout() {
-            logout(this.$root)
-        }
+  name: 'NavBar',
+  data() {
+    return {
+      isLoggedIn: false
     }
+  },
+  methods: {
+    logout() {
+      logout(this.$root)
+    }
+  }
 }
+
 </script>

@@ -53,7 +53,7 @@ const router = new Router({
 			component: Business
 		},
 		{
-			path: '/masseuses',
+			path: '/team',
 			component: Masseuses
 		},
 		{

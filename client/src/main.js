@@ -3,11 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import LogoSolo from '@/assets/img/logo/Mini.svg'
 
 //BUEFY
 
 import Buefy from 'buefy'
-import 'buefy/lib/buefy.css'
 
 //MATERIAL ICONS
 
@@ -23,30 +23,38 @@ Vue.use(vueEventCalendar, { locale: 'en' })
 //STRIPE
 
 import VueStripeCheckout from 'vue-stripe-checkout';
-
-// base/global options
-// these options can be overridden 
-// by the options in the .open(options) 
-// function.
 const options = {
 	key: 'pk_test_hRfWeiE7MuT5fINhdlIWyh9n',
-	image: 'https://cdn.meme.am/images/100x100/15882140.jpg',
+	image: LogoSolo,
 	locale: 'auto',
 	currency: 'EUR',
 	billingAddress: true,
 	panelLabel: 'Confirm'
 }
 
+
+// MODAL
+
 import VModal from 'vue-js-modal'
 
 
+// CAROUSEL
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 
+Vue.config.productionTip = false
+
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.use(VModal)
+
 Vue.use(Buefy)
+
 Vue.component('icon', Icon)
-Vue.config.productionTip = false
+
 Vue.use(VueStripeCheckout, options);
 
 

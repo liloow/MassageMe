@@ -1,17 +1,40 @@
 <style lang="css" scoped>
+button.reserve {
+    background-color: rgb(255, 0, 0, 0.5);
+    line-height: 1;
+    margin: 1vh auto;
+    padding: 1vh 2.5vw;
+    display: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f9f9f9;
+    border-radius: 1vh;
+    border: solid 1px #f39c12;
+    background: rgba(230, 126, 34, 0.8);
+    text-align: center;
+    justify-content: center;
+}
+
+.autofix {
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    font-weight: bold;
+}
+
 </style>
 <template>
     <div class="container">
         <vue-event-calendar :events="slots">
             <template slot-scope="props">
-                <div v-for="(item,index) in props.showEvents" class="event-item">
-                    <button :disabled="item.available.length === 0 ? true : false" @click="goToMasseuse(index)">{{item.title}}</button>
+                <div v-for="(item,index) in props.showEvents" class="event-item autofix">
+                    <button class="reserve" :disabled="item.available.length === 0 ? true : false" @click="goToMasseuse(index)">{{item.title}}</button>
                     <p>{{item.desc}}</p>
                 </div>
             </template>
         </vue-event-calendar>
-        <pre>{{$data}}</pre>
-        <pre>{{slots}}</pre>
     </div>
 </template>
 <script>
@@ -49,10 +72,9 @@ export default {
             this.$emit('goToMasseuse', item)
         }
     },
-
     created() {
         getSlots().then(slots => {
-            this.slots = slots
+            this.slots = slots.sort((a, b) => parseInt(a.slot.split(':')[0]) - parseInt(b.slot.split(':')[0]))
             this.slots.forEach(el => el.date = el.date.split('T')[0].split('-').join('/'))
             this.slots.forEach(el => {
                 el.title = el.slot
@@ -63,4 +85,5 @@ export default {
     },
     components: {}
 }
+
 </script>

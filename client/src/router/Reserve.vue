@@ -7,14 +7,6 @@
 		<div class="row" id="order-summary">
 		</div>
 		<div class="row">
-			<div>
-				<h2>TITLE</h2>
-			</div>
-			<div>
-				<h3>SUB</h3>
-			</div>
-		</div>
-		<div class="row">
 			<massage-selection @goToDate="goToDate($event)" v-if="step.massageSelection"></massage-selection>
 			<date-selection @goToMasseuse="goToMasseuse($event)" v-if="step.dateSelection"></date-selection>
 			<slot-selection v-if="step.slotSelection"></slot-selection>
@@ -23,10 +15,10 @@
 			<confirmation-selection v-if="step.confirmationSelection"></confirmation-selection>
 			<recap-info v-if="step.recapInfo"></recap-info>
 		</div>
-		<div class="row">
-			<progress-bar></progress-bar>
-			<pre>{{reservation}}</pre>
-		</div>
+		<!-- 		<div class="row">
+<pre>{{reservation}}</pre>
+<progress-bar></progress-bar>
+</div> -->
 	</div>
 </template>
 <script>

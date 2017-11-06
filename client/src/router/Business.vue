@@ -16,7 +16,7 @@
 		</div>
 		<div class="columns">
 			<div class="column">
-				<img src="../assets/massages/sit-BIG.png">
+				<img src="../assets/img/staff/sit-BIG.png">
 			</div>
 			<div class="column">
 				<p>Notre chaise spéciale s’adapte à des environnements variés. Elle nous permet de vous offrir une relaxation de qualité, quel que soit le lieu que vous choisissez.

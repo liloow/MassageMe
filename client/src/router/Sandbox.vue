@@ -1,5 +1,5 @@
 <style lang="css" scoped>
-@import '../assets/formStyle.css';
+@import '../assets/stylesheets/formStyle.css';
 .column {
     margin: 0.5rem;
 }
@@ -31,7 +31,7 @@
                 <div class="columns">
                     <div class="column static is-narrow">
                         <div class="row">
-                            <img class="logo" src="../assets/logo-solo.png" alt="Logo">
+                            <img class="logo" src="../assets/img/logo/Mini.svg">
                         </div>
                         <div class="row">
                             <p>N'hésitez pas à nous contacter pour toutes vos questions.</p>

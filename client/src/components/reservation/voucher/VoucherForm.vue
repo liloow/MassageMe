@@ -37,6 +37,7 @@ article {
 .field {
     margin-left: 0
 }
+
 </style>
 <template>
     <div class="container">
@@ -48,7 +49,7 @@ article {
                     </div>
                     <div class=" columns">
                         <div class="column is-narrow-desktop img">
-                            <img src="../../../assets/gift.jpeg" alt="Gift Image" id="gift">
+                            <img src="../../../assets/img/gift.jpeg" alt="Gift Image" id="gift">
                         </div>
                         <div class="column ">
                             <b-field grouped>
@@ -152,4 +153,5 @@ export default {
         }
     }
 };
+
 </script>

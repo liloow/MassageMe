@@ -7,13 +7,12 @@
 <template>
 	<div class="container">
 		<div class="row">
-			<h2>SUBTITLE</h2>
+			<h2>Choisissez votre masseur</h2>
 		</div>
 		<div class="row">
 			<div class="columns">
 				<masseuse-card v-for="masseuse in event.masseuse" :key="masseuse._id._id" :masseuse="masseuse._id" v-if="!masseuse.isbooked" @selectedMasseuse="$emit('selectedMasseuse',$event)"></masseuse-card>
 			</div>
-			<pre>{{event}}</pre>
 		</div>
 	</div>
 </template>

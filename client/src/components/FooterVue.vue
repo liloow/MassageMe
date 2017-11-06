@@ -4,12 +4,15 @@
 }
 
 .footer {
-    background-color: rgba(0,0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    display: flex;
+    justify-content: flex-end;
 }
+
 </style>
 <template>
-    <div class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
             <div class="row">
                 <p>© 2017 tous droits réservés by MassageMe.</p>
@@ -22,7 +25,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </footer>
 </template>
 <script>
 export default {
@@ -35,4 +38,5 @@ export default {
         };
     }
 };
+
 </script>

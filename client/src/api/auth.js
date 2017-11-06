@@ -47,3 +47,5 @@ export function checkUser(vm) {
 		vm.user = { name: false }
 	}
 }
+
+export function appendToUserHistory(user, res) { return api.post(`${user}/append/`).then(response => { return response.data; }) }

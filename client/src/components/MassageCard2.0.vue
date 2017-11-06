@@ -186,9 +186,9 @@ body {
 </style>
 <template>
     <section v-if="massages">
-        <div class="container">
+        <div class="container rowS">
             <div v-for="item in massages" class="flipper" :class="{'flip': item.flip}" @click="letsFlip(item)">
-                <figure class="front">
+                <figure class="card front">
                     <div class="card">
                         <div class="card-image">
                             <figure class="image">
@@ -208,12 +208,10 @@ body {
                         </div>
                     </div>
                 </figure>
-                <figure class="back">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="is-centered-ver-hor ">
-                                <div class="media">
-                                    <div class="media-left">
+                <figure class="card back">
+                    <div class="card-content is-centered">
+                        <div class="media">
+                              <div class="media-left">
                                         <figure class="image is-32x32">
                                             <img v-bind:src="item.picture" alt="Image">
                                         </figure>
@@ -227,8 +225,6 @@ body {
                                     <h3 class="title is-3">Book me</h3>
                                 </a>
                             </div>
-                        </div>
-                    </div>
                 </figure>
             </div>
             <div class="row">
