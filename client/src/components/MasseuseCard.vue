@@ -33,21 +33,8 @@
 @-webkit-keyframes pulse {
 	0% {
 		box-shadow: 0 0 0 0 var(--hover);
-	}
-}
-
-@keyframes pulse {
-	0% {
-		box-shadow: 0 0 0 0 var(--hover);
-	}
-}
-
-.pulse {
-	--color: #FCA17D;
-	--hover: #FFB27F;
-}
-
-.raise {
+	} } @keyframes pulse { 0% { box-shadow: 0 0 0 0 var(--hover); } } .pulse { --color: #FCA17D; --hover: #FFB27F; } .rais
+e {
 	--color: #FCA17D;
 	--hover: #FFB27F;
 }
