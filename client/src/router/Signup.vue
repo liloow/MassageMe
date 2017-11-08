@@ -30,17 +30,6 @@
                 <modal-form></modal-form>
             </b-modal>
         </div>
-        Try out
-        <button class="button is-primary is-medium" @click="isComponentModalActive = true">
-            Launch component modal
-        </button>
-        <button @click="state='HomemadeModal'" type="button">Sweet Modal</button>
-        <sweet-modal modal-theme="dark" ref="loginModal" overlay-theme="dark" width="320px" enable-mobile-fullscreen>
-            <div class="modal-wrapper">
-                <modal-form></modal-form>
-            </div>
-        </sweet-modal>
-        <component @close="state=null" :is="state"></component>
     </section>
 </template>
 <script>

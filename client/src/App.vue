@@ -25,6 +25,7 @@ $navbar-background-color:$orange;
 <template>
   <div id="app">
     <nav-bar></nav-bar>
+    <component @close="state=null" :is="state"></component>
     <router-view></router-view>
     <footer-vue></footer-vue>
   </div>
@@ -39,7 +40,7 @@ export default {
   name: 'app',
   data() {
     return {
-
+      state: null
     }
   },
   methods: {

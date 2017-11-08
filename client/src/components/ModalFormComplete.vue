@@ -21,7 +21,7 @@ p {
     text-transform: uppercase;
     font-size: 12px;
     color: #ff9a58;
-    margin: 2vh 0;
+    margin-bottom: 40px;
 }
 
 p>span {
@@ -36,15 +36,14 @@ h3 {
     font-size: 50px;
     text-transform: uppercase;
     color: #ff9a58;
-    margin: -10vh 0vh 0;
+    margin: 0vh 0vh;
     letter-spacing: 0.2rem;
-    padding: 2vh 0vh
 }
 
 button.fb {
     background: #3b5998;
-    width: 50px;
-    height: 50px;
+    width: 160px;
+    height: 25px;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     color: #f9f9f9;
@@ -52,7 +51,7 @@ button.fb {
     border-radius: 4px;
     border: 1px solid #29487d;
     cursor: pointer;
-    margin: 20px 7px 20px;
+    margin-bottom: 20px;
     transition: all 0.3s linear;
 }
 
@@ -132,29 +131,29 @@ button.form-btn.dx {
 }
 
 
-.signUp ::-webkit-input-placeholder {
-    color: #ffc185;
+.signUp input:focus::-webkit-input-placeholder {
+    color: #f9f9f9;
     font-family: 'Roboto';
     font-weight: 50;
     font-size: 1rem;
 }
 
-.signUp :-moz-placeholder {
-    color: #ffc185;
+.signUp input:focus:-moz-placeholder {
+    color: #f9f9f9;
     font-family: 'Roboto';
     font-weight: 50;
     font-size: 1rem;
 }
 
-.signUp ::-moz-placeholder {
-    color: #ffc185;
+.signUp input:focus:-moz-placeholder {
+    color: #f9f9f9;
     font-family: 'Roboto';
     font-weight: 50;
     font-size: 1rem;
 }
 
-.signUp :-ms-input-placeholder {
-    color: #ffc185;
+.signUp input:focus:-ms-input-placeholder {
+    color: #f9f9f9;
     font-family: 'Roboto';
     font-weight: 50;
     font-size: 1rem;
@@ -168,7 +167,7 @@ button.form-btn.dx {
 
 .signUp {
     z-index: 2;
-    padding: 0vh 0vw;
+    padding: 0vh 2vw;
 }
 
 .active-dx {
@@ -198,13 +197,13 @@ button.form-btn.dx {
 @keyframes overshadowing-dx {
     0% {
         z-index: 2;
-        transform: perspective(7vw) translate3d(0px, 0px, 0px);
+        transform: perspective(9vw) translate3d(0px, 0px, 0px);
         opacity: 1;
         box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
     }
     100% {
         z-index: 1;
-        transform: perspective(7vw) translate3d(7vw, 0px, -30px);
+        transform: perspective(9vw) translate3d(9vw, 0px, -30px);
         opacity: 0.5;
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
     }
@@ -213,13 +212,13 @@ button.form-btn.dx {
 @keyframes overshadowing-sx {
     0% {
         z-index: 2;
-        transform: perspective(7vw) translate3d(0px, 0px, 0px);
+        transform: perspective(9vw) translate3d(0px, 0px, 0px);
         opacity: 1;
         box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
     }
     100% {
         z-index: 1;
-        transform: perspective(7vw) translate3d(-7vw, 0px, -30px);
+        transform: perspective(9vw) translate3d(-9vw, 0px, -30px);
         opacity: 0.5;
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
     }
@@ -228,16 +227,16 @@ button.form-btn.dx {
 @keyframes foregrounding-dx {
     0% {
         z-index: 1;
-        transform: perspective(7vw) translate3d(7vw, 0px, -30px);
+        transform: perspective(9vw) translate3d(9vw, 0px, -30px);
         opacity: 0.5;
     }
     50% {
         z-index: 2;
-        transform: perspective(7vw) translate3d(300px, 0px, -30px);
+        transform: perspective(9vw) translate3d(400px, 0px, -30px);
     }
     100% {
         z-index: 2;
-        transform: perspective(7vw) translate3d(0px, 0px, 0px);
+        transform: perspective(9vw) translate3d(0px, 0px, 0px);
         opacity: 1;
     }
 }
@@ -245,12 +244,12 @@ button.form-btn.dx {
 @keyframes foregrounding-sx {
     0% {
         z-index: 1;
-        transform: perspective(7vw) translate3d(-7vw, 0px, -30px);
+        transform: perspective(9vw) translate3d(-9vw, 0px, -30px);
         opacity: 0.5;
     }
     50% {
         z-index: 2;
-        transform: perspective(7vw) translate3d(-300px, 0px, -30px);
+        transform: perspective(9vw) translate3d(-400px, 0px, -30px);
     }
     100% {
         z-index: 2;
@@ -267,49 +266,21 @@ button.form-btn.dx {
     text-align: center;
     font-size: 1.3rem;
     font-weight: 100;
-    margin: 3vh 0 2vh;
+    margin-bottom: 26px;
     background-color: #f9f9f9;
     line-height: 200%;
 }
 
-.signUp input {
+.signUp input,
+{
     border: none;
-    width: 85%;
     font-family: 'Roboto';
     color: #ff9a58;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     font-weight: 100;
-    margin: 0vh 0 2vh;
     background-color: #f9f9f9;
-    line-height: 200%;
-}
-
-.signUp input.checkbox {
-    padding: 0 1vw;
-    width: auto;
-    margin: auto;
-}
-
-.flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-row {
-    display: flex;
-    align-items: center;
-    padding: 0 1vw 0;
-}
-
-
-.signUp input:focus,
-.signUp input:hover,
-.signIn input:focus,
-.signIn input:hover,
-.hasContent {
+    line-height: 1.7;
     border-bottom: solid 1px #ff9a58;
     outline: none;
     outline-offset: -2px;
@@ -319,8 +290,21 @@ button.form-btn.dx {
 
 .small {
     font-size: 0.7rem;
-    text-transform: none;
-    padding-right: 2vw
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-shrink: 1;
+    padding: 0;
+}
+
+.signIn input:focus,
+.signIn input:hover,
+.hasContent {
+    border-bottom: solid 1px #ff9a58;
+    outline: none;
+    outline-offset: -2px;
+    transition: all 0.3s;
+    border-radius: 3px;
 }
 
 .inactive-dx input,
@@ -337,36 +321,79 @@ button.form-btn.dx {
     text-align: left;
 }
 
+.signUp label {
+    padding: 2vh;
+    text-align: left;
+}
+
 </style>
 <template>
     <section click="toggle($event)" @keydown.esc="close($event)">
         <form @submit.prevent="processForm" :class="{'signUp':true,'active-dx':signupCard, 'inactive-sx':loginCard, 'flex':true}">
             <h3>S'inscrire</h3>
-            <input class="flex w100" size="30" v-model="form.firstname" id="firstname" type="text" placeholder="Enter your firstname" required autocomplete/>
-            <input class="flex w100" size="30" v-model="form.lastname" id="lastname" type="text" placeholder="Enter your lastname" required autocomplete/>
-            <input class="flex w100" size="30" :class="{'hasContent': form.email}" icon="mail" type="email" placeholder="Enter your email" autocomplete required v-model="form.email" />
-            <input class="flex w100" size="30" :class="{'hasContent': form.email}" type="password" icon="lock" placeholder="Insert Password" required password-reveal />
-            <input class="flex w100" size="30" v-model="form.confirm" id="confirm" type="password" placeholder="Verify Password" required />
-            <div class="flex-row ">
-                <p class="small">J'ai lu et j'accepte les <a target="about_blank" href="/legal"> conditions générales de vente </a> </p>
-                <input type="checkbox" class="checkbox is-narrow" />
+            <div class=" field is-grouped">
+                <div class="control">
+                    <label class="label small" for="firstname">Prenom</label>
+                    <input class="input small signUp" v-model="form.firstname" id="firstname" type="text" placeholder="Enter your firstname" required autocomplete/>
+                </div>
+                <div class="control">
+                    <label class="label small" for="lastname">Nom</label>
+                    <input class="input small signUp" v-model="form.lastname" id="lastname" type="text" placeholder="Enter your lastname" required autocomplete/>
+                </div>
+            </div>
+            <div class=" field is-grouped">
+                <div class="control">
+                    <label class="label small">Je suis un/une </label>
+                    <div class="select dropdown">
+                        <select name="gender" id="gender" v-model="form.gender">
+                            <option value="female">Femme</option>
+                            <option value="male">Homme</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <label class="label small" for="birthDate">Date de naissance </label>
+                    <input class=" input signUp" v-model="form.birthDate" id="birthDate" type="text" placeholder="Enter your date of birth" required autocomplete/>
+                </div>
+            </div>
+            <div class="control has-icons-left">
+                <label class="label small" for="phone">Telephone </label>
+                <input class="input small signUp" v-model="form.phone" id="phone" type="text" placeholder="Enter your phone number" required autocomplete/>
+            </div>
+            <div class="control has-icons-left">
+                <label class="label small" for="email">Adresse email </label>
+                <input class="input small signUp" v-model="form.email" id="email" type="email" placeholder="Enter your email" required autocomplete/>
+                <span class="icon is-small is-left">
+      <i class="fa fa-envelope"></i>
+    </span>
+            </div>
+            <div class="control has-icons-left">
+                <label class="label small" for="password">Mot de passe</label>
+                <input class="input small signUp" v-model="form.password" id="password" type="password" placeholder="Insert Password" required />
+                <span class="icon is-small is-left">
+      <i class="fa fa-lock"></i>
+   </span>
+            </div>
+            <div class="control has-icons-left">
+                <label class="label small" for="confirm">Confirmer le mot de passe</label>
+                <input class="signUp input" v-model="form.confirm" id="confirm" type="password" placeholder="Verify Password" required />
+            </div>
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox"> J'ai lu et j'accepte les <a target="about_blank" href="/legal"> conditions générales de vente </a>
+                </label>
             </div>
             <button @click="toggleView" class="form-btn sx log-in" type="button">Already a member?</button>
             <button class="form-btn dx" type="submit">Sign Up</button>
         </form>
         <form @submit.prevent="processForm" :class="{'signIn':true,'active-sx':loginCard, 'inactive-dx':signupCard, 'flex':true}">
-            <h3>Welcome <br> Back !</h3>
+            <h3>Welcome  Back !</h3>
             <input class="flex w100" :class="{'hasContent': form.email}" size="30" icon="mail" type="email" placeholder="Enter your email" autocomplete required v-model="form.email" />
-            <input class="flex w100" :class="{'hasContent': form.password}" size="30" type="password" icon="lock" placeholder="Insert Password" required password-reveal />
+            <input class="flex w100" :class="{'hasContent': form.email}" size="30" type="password" icon="lock" placeholder="Insert Password" required password-reveal />
             <p>- or -</p>
-            <div class="flex-row">
-                <button class="fb" type="button">F</button>
-                <button class="fb" type="button">G</button>
-                <button class="fb" type="button">L</button>
-            </div>
+            <button class="fb" type="button">Log In With Facebook</button>
             <button @click="toggleView" class="form-btn sx back" type="button">Signup</button>
-            <button class="form-btn dx" type="submit">Log In</button>
-        </form>
+            <button class="form-btn dx" type="submit">Log In</button> --></form>
     </section>
 </template>
 <script>
