@@ -5,15 +5,15 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 
 const userSchema = new Schema({
-	// the username and password are added by passportLocalMongoose
-	// we can add any extra information like facebooktokens (or
-	// others) as well as a picture, etc
+	role: {
+		enum: ['user', 'physio', 'admin'],
+		required: true,
+		type: String,
+		default: 'user'
+	},
 	name: String,
-	email: String, // TODO: USE THIS INSTEAD OF USERNAME
-	orderHistory: [{
-
-	}],
-
+	addresses: [Object],
+	orderHistory: [Object],
 })
 
 userSchema.plugin(passportLocalMongoose);

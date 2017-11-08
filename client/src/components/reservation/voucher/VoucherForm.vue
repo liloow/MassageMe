@@ -1,6 +1,6 @@
 <style lang="css" scoped>
 article {
-    width: 600px%;
+    width: 600px;
     max-width: 90%;
     margin: auto;
     border: 2px solid #ff9a58;

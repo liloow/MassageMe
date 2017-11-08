@@ -1,4 +1,9 @@
+import Vue from 'vue'
 import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+
 
 const api = axios.create({
 	baseURL: process.env.NODE_ENV === "production" ? '/api' : "http://localhost:3000/api",

@@ -12,6 +12,8 @@ import Contact from '@/router/Contact'
 import Business from '@/router/Business'
 import Reserve from '@/router/Reserve'
 import Sandbox from '@/router/Sandbox'
+import { checkUser } from '@/api/auth';
+
 
 
 
@@ -19,6 +21,7 @@ Vue.use(Router)
 
 const router = new Router({
 	mode: 'history',
+	linkActiveClass: 'active',
 	routes: [{
 			path: '/',
 			component: Home
@@ -34,7 +37,7 @@ const router = new Router({
 			path: '/signup',
 			component: Signup,
 			meta: {
-				requiresNonAuth: true
+				requiresNonAuth: false
 			}
 		},
 		{
@@ -66,7 +69,10 @@ const router = new Router({
 		},
 		{
 			path: '/pricing',
-			component: Pricing
+			component: Pricing,
+			meta: {
+				reauireAuth: true
+			}
 		},
 		{
 			path: '/reserve',
@@ -79,6 +85,30 @@ const router = new Router({
 })
 
 
+
+router.beforeEach((to, from, next) => {
+	if (to.meta.requiresAuth) {
+		checkUser(router.app.$root);
+		if (!router.app.$root.user) {
+			return next({
+				path: '/login',
+				query: {
+					redirect: encodeURIComponent(to.fullPath),
+				},
+			});
+		}
+	}
+
+	next();
+});
+
+router.beforeEach((to, from, next) => {
+	if (to.meta.requiresNonAuth) {
+		checkUser(router.app.$root);
+		if (router.app.$root.user) return next('/');
+	}
+	next();
+});
 
 
 export default router

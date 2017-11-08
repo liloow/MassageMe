@@ -7,7 +7,7 @@ const passport = require("passport");
 router.post('/signup', (req, res, next) => {
   // extract the info we need from the body
   // of the request
-  const { username, name, password, email } = req.body;
+  const { username, password } = req.body;
 
   // create the new user
   // notice how we don't pass the password because
@@ -15,8 +15,6 @@ router.post('/signup', (req, res, next) => {
   // for us
   const user = new User({
     username,
-    name,
-    email,
   });
 
   User.register(user, password, err => {
@@ -32,6 +30,7 @@ router.post('/signup', (req, res, next) => {
 const authenticate = User.authenticate();
 router.post('/login', (req, res, next) => {
   const { username, password } = req.body;
+
   // check if we have a username and password
   if (username && password) {
     // test if the credentials are valid
@@ -52,7 +51,7 @@ router.post('/login', (req, res, next) => {
         // the id is usually enough because we can get back
         // the actual user by fetching the database later
         const payload = {
-          id: user.id,
+          id: user._id,
         };
         // generate a token and send it
         // this token will contain the user.id encrypted
@@ -62,9 +61,9 @@ router.post('/login', (req, res, next) => {
         const token = jwt.encode(payload, process.env.JWT_SECRET);
         res.json({
           user: {
-            name: user.name,
-            username: user.username,
-            _id: user._id,
+            username,
+            id: user._id,
+            role: user.role
           },
           token,
         });

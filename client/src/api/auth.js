@@ -44,7 +44,7 @@ export function checkUser(vm) {
 		});
 		vm.user = user;
 	} else {
-		vm.user = { name: false }
+		vm.user = null
 	}
 }
 
