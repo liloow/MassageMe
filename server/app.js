@@ -17,7 +17,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-if (app.get('env') === 'development') {
+if (process.env.NODE_ENV === 'DEV') {
 	app.use(
 		cors({
 			origin: "http://localhost:8080"

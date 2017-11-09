@@ -159,7 +159,7 @@ a.nav:focus {
 
 </style>
 <template>
-  <header id="header" class="header">
+  <header id="header" class="header" @keydown.esc="close($event)">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link class="navbar-item" to="/">
@@ -184,15 +184,18 @@ a.nav:focus {
           </router-link>
         </div>
         <div class="navbar-end">
-          <router-link v-if="!$root.user" to="/login" class="navbar-item">Sign In</router-link>
+          <a @click.prevent="dyno='HomemadeModal'" v-if="!$root.user" class="navbar-item">Sign In/Up</a>
           <a class="navbar-item" @click.prevent="logout" v-if="$root.user">Logout</a>
         </div>
       </div>
     </nav>
+    <component @close="close" :is="dyno"></component>
   </header>
 </template>
 <script>
 import { logout } from '@/api/auth';
+import HomemadeModal from '@/components/HomemadeModal';
+
 export default {
   name: 'NavBar',
   data() {
@@ -222,21 +225,43 @@ export default {
       data: null,
       keepFirst: true,
       name: '',
-      selected: null
+      selected: null,
+      dyno: null,
+      listener: (e) => this.close(e)
     }
   },
-
+  props: {
+    rule: String
+  },
+  mounted() {
+    document.addEventListener('keyup', this.escape)
+  },
+  unmount() {
+    document.removeEventListener('keyup', this.escape)
+  },
   methods: {
     logout() {
       logout(this.$root)
       this.$router.push('/')
-    }
+    },
+    close(e) {
+      console.log(e)
+      document.getElementsByTagName('html')[0].style.height = 'auto'
+      document.getElementsByTagName('html')[0].style.overflow = 'visible'
+      this.dyno = null
+    },
+    escape(event) {
+      if (event.keyCode == 27) {
+        this.close()
+      }
+    },
   },
+
   computed: {
 
   },
-
-  created() {}
+  created() {},
+  components: { HomemadeModal }
 };
 
 </script>

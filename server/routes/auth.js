@@ -5,16 +5,30 @@ const jwt = require("jwt-simple");
 const passport = require("passport");
 
 router.post('/signup', (req, res, next) => {
+  console.log(req.body);
   // extract the info we need from the body
   // of the request
-  const { username, password } = req.body;
+  const {
+    email,
+    password,
+    firstname,
+    phone,
+    terms,
+    countryCode,
+    birthDate,
+    confirm,
+    lastname
+  } = req.body;
 
   // create the new user
   // notice how we don't pass the password because
   // we're letting User.register add the hashed version
   // for us
   const user = new User({
-    username,
+    username: email,
+    firstname,
+    lastname,
+    email,
   });
 
   User.register(user, password, err => {
@@ -29,6 +43,7 @@ router.post('/signup', (req, res, next) => {
 // User.authenticate() returns a function
 const authenticate = User.authenticate();
 router.post('/login', (req, res, next) => {
+  console.log(req.body)
   const { username, password } = req.body;
 
   // check if we have a username and password

@@ -2,7 +2,7 @@
 #app {
   font-family: 'Roboto Slab', serif;
   min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -25,7 +25,6 @@ $navbar-background-color:$orange;
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <component @close="state=null" :is="state"></component>
     <router-view></router-view>
     <footer-vue></footer-vue>
   </div>
@@ -36,11 +35,13 @@ import { checkUser } from '@/api/auth';
 import { checkAnnounce } from '@/api/data';
 import NavBar from '@/components/NavBar2.0';
 import FooterVue from '@/components/FooterVue';
+import HomemadeModal from '@/components/HomemadeModal';
+
 export default {
   name: 'app',
   data() {
     return {
-      state: null
+      dyno: null,
     }
   },
   methods: {
@@ -53,7 +54,8 @@ export default {
   components: {
     Home,
     NavBar,
-    FooterVue
+    FooterVue,
+    HomemadeModal
   }
 }
 

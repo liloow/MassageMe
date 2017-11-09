@@ -32,14 +32,21 @@ export default {
 
 	data() {
 		return {
-
+			scroll: 0
 		}
 	},
+	ref: 'dynoComp',
 	methods: {
 		close(e) {
 			console.log(e.path)
 			if (e.path[0].className === 'fullscreen') this.$emit('close')
 		}
+	},
+	created() {
+		this.scroll = document.getElementsByTagName('html')[0].scrollHeight
+		document.getElementsByTagName('html')[0].style.height = '100%'
+		document.getElementsByTagName('html')[0].style.overflow = 'hidden'
+
 	},
 	components: {
 		ModalForm

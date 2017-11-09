@@ -16,7 +16,7 @@
 
 </style>
 <template>
-    <section @keydown.esc="state=null">
+    <section @keydown.esc="dyno=null">
         <div class="columns">
             <div class="column-4 pad30 is-narrow">
                 <img class="logo" src="../assets/img/logo/Full.svg" alt="Logo">
@@ -50,7 +50,7 @@ export default {
             password: "",
             error: null,
             isComponentModalActive: false,
-            state: null
+            dyno: null
 
         }
     },

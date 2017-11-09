@@ -339,13 +339,13 @@ button.form-btn.dx {
 
 </style>
 <template>
-    <section click="toggle($event)" @keydown.esc="close($event)">
-        <form @submit.prevent="processForm" :class="{'signUp':true,'active-dx':signupCard, 'inactive-sx':loginCard, 'flex':true}">
+    <section>
+        <form @click.self="toggle($event)" @submit.prevent="processForm" :class="{'signUp':true,'active-dx':signupCard, 'inactive-sx':loginCard, 'flex':true}">
             <h3>S'inscrire</h3>
             <input class="flex w100" size="30" v-model="form.firstname" id="firstname" type="text" placeholder="Enter your firstname" required autocomplete/>
             <input class="flex w100" size="30" v-model="form.lastname" id="lastname" type="text" placeholder="Enter your lastname" required autocomplete/>
             <input class="flex w100" size="30" :class="{'hasContent': form.email}" icon="mail" type="email" placeholder="Enter your email" autocomplete required v-model="form.email" />
-            <input class="flex w100" size="30" :class="{'hasContent': form.email}" type="password" icon="lock" placeholder="Insert Password" required password-reveal />
+            <input class="flex w100" size="30" v-model="form.password" :class="{'hasContent': form.email}" type="password" icon="lock" placeholder="Insert Password" required password-reveal />
             <input class="flex w100" size="30" v-model="form.confirm" id="confirm" type="password" placeholder="Verify Password" required />
             <div class="flex-row ">
                 <p class="small">J'ai lu et j'accepte les <a target="about_blank" href="/legal"> conditions générales de vente </a> </p>
@@ -354,10 +354,10 @@ button.form-btn.dx {
             <button @click="toggleView" class="form-btn sx log-in" type="button">Already a member?</button>
             <button class="form-btn dx" type="submit">Sign Up</button>
         </form>
-        <form @submit.prevent="processForm" :class="{'signIn':true,'active-sx':loginCard, 'inactive-dx':signupCard, 'flex':true}">
+        <form @click.self="toggle($event)" @submit.prevent="processForm" :class="{'signIn':true,'active-sx':loginCard, 'inactive-dx':signupCard, 'flex':true}">
             <h3>Welcome <br> Back !</h3>
             <input class="flex w100" :class="{'hasContent': form.email}" size="30" icon="mail" type="email" placeholder="Enter your email" autocomplete required v-model="form.email" />
-            <input class="flex w100" :class="{'hasContent': form.password}" size="30" type="password" icon="lock" placeholder="Insert Password" required password-reveal />
+            <input class="flex w100" :class="{'hasContent': form.password}" size="30" type="password" icon="lock" placeholder="Insert Password" required password-reveal v-model="form.password" />
             <p>- or -</p>
             <div class="flex-row">
                 <button class="fb" type="button">F</button>
@@ -370,10 +370,9 @@ button.form-btn.dx {
     </section>
 </template>
 <script>
+import { login, signup } from '@/api/auth'
 export default {
-
     name: 'ModalForm',
-
     data() {
         return {
             loginCard: true,
@@ -395,8 +394,8 @@ export default {
     },
     methods: {
         toggle(e) {
-            console.log(e);
-            if (e.path[0].className.split(' ')[0] === 'signUp' || e.path[0].className.split(' ')[0] === 'signIn') this.toggleView()
+            if (e.path[0].className.split(' ')[0] === 'signUp' && this.loginCard) this.toggleView()
+            if (e.path[0].className.split(' ')[0] === 'signIn' && this.signupCard) this.toggleView()
         },
         close(e) {
             console.log(e.path)
@@ -407,14 +406,14 @@ export default {
             this.signupCard = !this.signupCard
         },
         processForm() {
-            if (loginCard) {
-                login(this, form.email, this, form.password, this.$root).then(r => this.$emit('loggedIn', r)).catch(err => {
+            if (this.loginCard) {
+                login(this.form.email, this.form.password, this.$root).then(r => vm.user ? this.$emit('close', r) : this.error = 'Something went terribly wrong, please try again in a few minutes. ').catch(err => {
                     this.error = err.response.data.error
                     console.error('Login error', err)
                 })
             }
-            if (signupCard) {
-                signup(this.form).then(r => login(r.email, r.password, this.$root)).then(r => this.$emit('loggedIn', r)).catch(err => {
+            if (this.signupCard) {
+                signup(this.form).then(r => login(r.email, r.password, this.$root)).then(r => vm.user ? this.$emit('close', r) : this.error = 'Something went terribly wrong, please try again in a few minutes. ').catch(err => {
                     this.error = err.response.data.error
                     console.error('Signup err', err)
                 })

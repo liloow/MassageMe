@@ -11,7 +11,11 @@ const userSchema = new Schema({
 		type: String,
 		default: 'user'
 	},
-	name: String,
+	firstname: String,
+	lastname: String,
+	gender: String,
+	phone: String,
+
 	addresses: [Object],
 	orderHistory: [Object],
 })
