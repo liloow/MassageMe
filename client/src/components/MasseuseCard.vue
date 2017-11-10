@@ -8,8 +8,8 @@
 	font-size: 0.9rem;
 }
 
-.padding-2 {
-	margin: 3vh;
+.margin-2 {
+	margin: 2vh;
 }
 
 
@@ -33,8 +33,21 @@
 @-webkit-keyframes pulse {
 	0% {
 		box-shadow: 0 0 0 0 var(--hover);
-	} } @keyframes pulse { 0% { box-shadow: 0 0 0 0 var(--hover); } } .pulse { --color: #FCA17D; --hover: #FFB27F; } .rais
-e {
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 var(--hover);
+	}
+}
+
+.pulse {
+	--color: #FCA17D;
+	--hover: #FFB27F;
+}
+
+.raise {
 	--color: #FCA17D;
 	--hover: #FFB27F;
 }
@@ -102,42 +115,54 @@ button.reserve {
 	align-items: center;
 }
 
+.title {
+	color: #f39c12;
+}
+
 .autofix {
 	margin: auto;
-	flex-direction: column;
-	text-align: center;
-	overflow: hidden;
-	display: flex;
+	width: 100%;
 }
 
 .card-footer {
 	margin-bottom: 2vh;
 }
 
-.card-top {
-	height: auto;
+.title {
+	margin-top: -2vh;
+	margin-bottom: 1vh
+}
+
+.grid {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+.circle {
+	border-radius: 100%;
+	overflow: hidden;
+	border: solid 3px #f39c12;
 }
 
 </style>
 <template>
 	<div class="column">
-		<div class="card">
-			<div class="card-image">
-				<figure autofix>
-					<img :src="masseuse.avatar" alt="Placeholder image">
-				</figure>
+		<div class="card grid">
+			<div class="card-image margin-2 circle">
+				<img class=" autofix" :src="masseuse.avatar" alt="Placeholder image">
 			</div>
 			<div class="card-content">
 				<div class="media">
-					<div class="media-content">
+					<div class="grid media-content">
 						<div class="">
 							<button v-if="$route.path==='/reserve'" class="reserve autofix raise pulse" @click="$emit('selectedMasseuse',masseuse)">{{masseuse.name}}</button>
-							<h2 v-if="!$route.path==='/reserve'" class="reserve autofix">{{masseuse.name}}</h2>
+							<h2 v-else class="title is-3 autofix">{{masseuse.name}}</h2>
 						</div>
 					</div>
 				</div>
 				<div class="content">
-					{{masseuse.bio}}
+					<p>{{masseuse.bio}}</p>
 				</div>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 #app {
   font-family: 'Roboto Slab', serif;
   min-height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   display: flex;
   justify-content: space-between;
   flex-direction: column;

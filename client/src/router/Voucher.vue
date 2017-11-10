@@ -7,9 +7,9 @@
         <div class="row">
             <div class="columns">
                 <div class="column">
-                    <voucher-form></voucher-form>
-                    <voucher-confirm></voucher-confirm>
-                    <voucher-pay></voucher-pay>
+                    <voucher-form v-if="state===1"></voucher-form>
+                    <voucher-confirm v-if="state==2"></voucher-confirm>
+                    <voucher-pay v-if="state===3"></voucher-pay>
                 </div>
             </div>
         </div>
@@ -24,13 +24,17 @@ export default {
     name: 'Voucher',
     data() {
         return {
-
+            state: 1,
         }
     },
     methods: {
 
     },
-    components: {},
+    components: {
+        VoucherForm,
+        VoucherConfirm,
+        VoucherPay
+    },
     created() {
         scrollTo(top)
     }

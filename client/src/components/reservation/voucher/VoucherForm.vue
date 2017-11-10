@@ -117,24 +117,19 @@ article {
             </form>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
 </template>
 <script>
 export default {
-
     name: 'VoucherForm',
-
     data() {
         return {
             voucher: {
-                senderName: this.$root.user.name ? this.$root.user.name : '',
-                senderEmail: this.$root.user.email ? this.$root.user.email : '',
+                senderName: '',
+                senderEmail: '',
                 recipientName: '',
                 method: 'Sélectionner le type de livraison',
                 recipientAddress: {
-                    name: this.$root.user.name || '',
+                    name: '',
                     line1: '',
                     line2: '',
                     postalCode: '4000',
@@ -151,7 +146,7 @@ export default {
             this.$emit('goToConfirm', this.voucher)
             return 'LOL'
         }
-    }
-};
+    },
+}
 
 </script>

@@ -8,7 +8,7 @@
     color: white;
     display: flex;
     justify-content: flex-end;
-    padding: 3rem 1.5rem 3qrem
+    padding: 3rem 1.5rem 3rem
 }
 
 </style>
