@@ -13,7 +13,7 @@
 
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
-$orange:#ff9a58;
+$orange:#0b4269;
 $orange-invert: findColorInvert($orange);
 $colors:( "primary":($orange, $orange-invert));
 $navbar-height: 7vh;
