@@ -136,7 +136,7 @@ button.reserve {
 .grid {
 	display: grid;
 	justify-content: center;
-	align-content: center;
+	align-content: cente
 }
 
 .circle {

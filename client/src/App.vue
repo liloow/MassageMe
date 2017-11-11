@@ -6,7 +6,8 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: #f9f9f9,
+  background-color: #f9f9f9;
+  margin-top: 10vh
 }
 
 

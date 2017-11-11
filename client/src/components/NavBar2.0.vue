@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 @keyframes checked-anim {
   50% {
-    width: 2000px;
+    width: 1500px;
     height: 900px;
   }
   100% {
@@ -162,7 +162,7 @@ a.nav:focus {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 1;
   border-bottom: solid 2px #fffe28;
 }
 
@@ -174,12 +174,12 @@ a.nav:focus {
         <router-link class="navbar-item" to="/">
           <img src="../assets/img/logo/Full.svg" alt="MassageMe" class="brand">
         </router-link>
-        <input type="checkbox" id="menu-toggle" />
+        <input type="checkbox" v-model="burgerState" id="menu-toggle" />
         <label id="trigger" for="menu-toggle" class="navbar-burger"></label>
         <label id="burger" for="menu-toggle" class="navbar-burger"></label>
         <ul id="menu" class="navbar-burger">
           <li class="nav"><img src="../assets/img/logo/Full.svg" alt="MassageMe" class="brand-burger"></li>
-          <li v-for="(link, index) in navbarLinks" class="nav">
+          <li v-for="(link, index) in navbarLinks" class="nav" @click="closeBurger">
             <router-link class="nav" :key="index" :to="link.location"> {{ link.text }}</router-link>
             <a @click.prevent="dyno='HomemadeModal'" v-if="!$root.user" class="nav">Sign In/Up</a>
             <a class="nav" @click.prevent="logout" v-if="$root.user">Logout</a>
@@ -237,7 +237,9 @@ export default {
       name: '',
       selected: null,
       dyno: null,
-      listener: (e) => this.close(e)
+      /*      listener: (e) => this.close(e),
+       */
+      burgerState: false
     }
   },
   props: {
@@ -252,10 +254,11 @@ export default {
   methods: {
     logout() {
       logout(this.$root)
+      this.closeBurger()
       this.$router.push('/')
     },
     close(e) {
-      console.log(e)
+      this.closeBurger()
       document.getElementsByTagName('html')[0].style.height = 'auto'
       document.getElementsByTagName('html')[0].style.overflow = 'visible'
       this.dyno = null
@@ -265,6 +268,9 @@ export default {
         this.close()
       }
     },
+    closeBurger() {
+      this.burgerState = false
+    }
   },
 
   computed: {

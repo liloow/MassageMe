@@ -70,16 +70,11 @@ const router = new Router({
 		{
 			path: '/pricing',
 			component: Pricing,
-			meta: {
-				reauireAuth: true
-			}
+			meta: {}
 		},
 		{
 			path: '/reserve',
 			component: Reserve
-		}, {
-			path: '/sandbox',
-			component: Sandbox
 		},
 	]
 })
@@ -98,7 +93,6 @@ router.beforeEach((to, from, next) => {
 			});
 		}
 	}
-
 	next();
 });
 

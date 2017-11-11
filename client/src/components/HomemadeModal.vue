@@ -4,14 +4,15 @@
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.8);
 	position: absolute;
-	top: 0;
-	z-index: 3;
+	top: 0vh;
+	z-index: 5;
 }
 
 .modal-wrapper {
 	min-width: 640px;
 	margin: 20vh 40vw;
 	position: absolute;
+	transform: translateX(-50%);
 }
 
 </style>
