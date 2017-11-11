@@ -1,13 +1,14 @@
 <style lang="scss">
 #app {
   font-family: 'Roboto Slab', serif;
-  min-height: 100vh;
+  min-height: 93vh;
   max-width: 100vw;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   background-color: #f9f9f9,
 }
+
 
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";

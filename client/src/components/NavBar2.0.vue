@@ -2,12 +2,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 @keyframes checked-anim {
   50% {
-    width: 3000px;
+    width: 2000px;
     height: 900px;
   }
   100% {
     width: 100vw;
-    height: 42vh;
+    height: auto;
     border-radius: 0;
   }
 }
@@ -113,7 +113,7 @@ a.nav:focus {
   right: 0;
   margin: 0;
   padding: 0;
-  width: 9vw;
+  width: 9vh;
   height: 9vh;
   background-color: #f9f9f9;
   border-bottom-left-radius: 100%;
@@ -157,10 +157,19 @@ a.nav:focus {
   margin-top: 1vh;
 }
 
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  border-bottom: solid 2px #fffe28;
+}
+
 </style>
 <template>
   <header id="header" class="header" @keydown.esc="close($event)">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar fixed" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link class="navbar-item" to="/">
           <img src="../assets/img/logo/Full.svg" alt="MassageMe" class="brand">
@@ -171,8 +180,9 @@ a.nav:focus {
         <ul id="menu" class="navbar-burger">
           <li class="nav"><img src="../assets/img/logo/Full.svg" alt="MassageMe" class="brand-burger"></li>
           <li v-for="(link, index) in navbarLinks" class="nav">
-            <router-link class="nav" :key="index" :to="link.location"> {{ link.text }}
-            </router-link>
+            <router-link class="nav" :key="index" :to="link.location"> {{ link.text }}</router-link>
+            <a @click.prevent="dyno='HomemadeModal'" v-if="!$root.user" class="nav">Sign In/Up</a>
+            <a class="nav" @click.prevent="logout" v-if="$root.user">Logout</a>
           </li>
         </ul>
       </div>
@@ -189,7 +199,7 @@ a.nav:focus {
         </div>
       </div>
     </nav>
-    <component @close="close" :is="dyno"></component>
+    <component @close="close($event)" :is="dyno"></component>
   </header>
 </template>
 <script>

@@ -17,6 +17,7 @@
     "bulma-extensions": "^0.2.0",
     "bulma-iconpicker": "^0.1.0",
     "bulma-steps-component": "^0.5.3",
+    "cloudinary-core": "^2.3.0",
     "codemirror": "^5.31.0",
     "date-fns": "^1.29.0",
     "element-ui": "^2.0.2",

@@ -340,7 +340,7 @@ button.form-btn.dx {
 </style>
 <template>
     <section>
-        <form @click.self="toggle($event)" @submit.prevent="processForm" :class="{'signUp':true,'active-dx':signupCard, 'inactive-sx':loginCard, 'flex':true}">
+        <form @click.self="toggle($event)" @submit.prevent="processForm($event)" :class="{'signUp':true,'active-dx':signupCard, 'inactive-sx':loginCard, 'flex':true}">
             <h3>S'inscrire</h3>
             <input class="flex w100" size="30" v-model="form.firstname" id="firstname" type="text" placeholder="Enter your firstname" required autocomplete/>
             <input class="flex w100" size="30" v-model="form.lastname" id="lastname" type="text" placeholder="Enter your lastname" required autocomplete/>
@@ -397,23 +397,20 @@ export default {
             if (e.path[0].className.split(' ')[0] === 'signUp' && this.loginCard) this.toggleView()
             if (e.path[0].className.split(' ')[0] === 'signIn' && this.signupCard) this.toggleView()
         },
-        close(e) {
-            console.log(e.path)
-            if (e.path[0].className === 'fullscreen') this.$emit('close')
-        },
         toggleView() {
             this.loginCard = !this.loginCard
             this.signupCard = !this.signupCard
         },
-        processForm() {
+        processForm(e) {
             if (this.loginCard) {
-                login(this.form.email, this.form.password, this.$root).then(r => vm.user ? this.$emit('close', r) : this.error = 'Something went terribly wrong, please try again in a few minutes. ').catch(err => {
+                console.log(e)
+                login(this.form.email, this.form.password, this.$root).then(r => this.$emit('close', e)).catch(err => {
                     this.error = err.response.data.error
                     console.error('Login error', err)
                 })
             }
             if (this.signupCard) {
-                signup(this.form).then(r => login(r.email, r.password, this.$root)).then(r => vm.user ? this.$emit('close', r) : this.error = 'Something went terribly wrong, please try again in a few minutes. ').catch(err => {
+                signup(this.form).then(r => login(r.email, r.password, this.$root)).then(r => this.$emit('close', e)).catch(err => {
                     this.error = err.response.data.error
                     console.error('Signup err', err)
                 })

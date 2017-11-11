@@ -132,16 +132,20 @@ button.reserve {
 
 .column,
 .columns {
-	display: flex;
-	flex-flow: wrap;
-	flex-direction: row;
-	flex-grow: wrap
+	display: inline-block;
+	max-width: 90vw;
+	margin: auto;
+}
+
+.auto {
+	margin: auto;
+	display: grid;
 }
 
 </style>
 <template>
 	<section>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div>
 					<h2 class="title is-3">Voici notre équipe de praticiens formés</h2>
@@ -150,9 +154,9 @@ button.reserve {
 					<h3 class="title is-4">Quel est le massage qui vous conviendra le mieux ?</h3>
 				</div>
 			</div>
-			<div class="row">
-				<div class="columns">
-					<div class="column is-4 is-3-on-desktop is-2-on-tablet is-1-on-mobile" v-for="masseuse in masseuses">
+			<div class="row auto">
+				<div class="columns margin-2">
+					<div class="column margin-2 is-12-mobile is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-quarter-fullhd" v-for="masseuse in masseuses">
 						<masseuse-card :masseuse="masseuse"></masseuse-card>
 					</div>
 				</div>

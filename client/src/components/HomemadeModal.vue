@@ -19,7 +19,7 @@
 	<section @keydown.esc="close($event)">
 		<div class="fullscreen" @click="close($event)">
 			<div class="modal-wrapper">
-				<modal-form></modal-form>
+				<modal-form @close="$emit('close',$event)"></modal-form>
 			</div>
 		</div>
 	</section>
