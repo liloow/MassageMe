@@ -1,20 +1,4 @@
 <style lang="css" scoped>
-.triple {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: 1rem;
-  align-items: center;
-}
-
-.center {
-  margin: auto;
-  justify-content: space-between;
-  align-items: space-between;
-  flex-direction: column;
-  overflow: hidden;
-}
-
 .raise:hover,
 .raise:focus {
   box-shadow: 1 1.5em 1.5em -0.4em var(--hover);
@@ -30,11 +14,6 @@
 }
 
 
-.massage-thumb {
-  overflow: hidden;
-  padding: 1vh 2vh;
-  height: 100%;
-}
 
 @-webkit-keyframes pulse {
   0% {
@@ -64,23 +43,19 @@ button {
   transition: 0.25s;
 }
 
-.square {
-  padding: 5vh 2vh 5vh;
-  margin: center;
-}
 
 button:hover,
 button:focus {
   border-color: var(--hover);
-  color: #fff;
+  color: #f9f9f9;
 
   -webkit-transition: all 0.1s;
   -moz-transition: all 0.1s;
   transition: all 0.1s;
 
-  -webkit-box-shadow: 0px 6px 0px #d35400;
-  -moz-box-shadow: 0px 6px 0px #d35400;
-  box-shadow: 0px 6px 0px #d35400;
+  -webkit-box-shadow: 0px 0.2rem 0px #d35400;
+  -moz-box-shadow: 0px 0.2rem 0px #d35400;
+  box-shadow: 0px 0.2rem 0px #d35400;
 }
 
 .reserve:active {
@@ -88,62 +63,70 @@ button:focus {
   -moz-box-shadow: 0px 2px 0px #d35400;
   box-shadow: 0px 2px 0px #d35400;
   position: relative;
-  top: 4px;
 }
 
 
 
 button.reserve {
-  background-color: rgb(255, 0, 0, 0.5);
   line-height: 1;
   margin: 0vh;
-  padding: 1vh 2.5vw;
+  padding: 2vh 3.5vw;
   display: flex;
   font-size: 1rem;
   font-weight: bold;
   color: #f9f9f9;
   border-radius: 1vh;
   border: solid 1px #f39c12;
-  background: rgba(230, 126, 34, 0.8);
+  background: var(--mm);
   text-align: center;
   justify-content: center;
-  align-items: flex-end;
 }
 
-.autofix {
-  height: 10%;
+
+
+
+h3 {}
+
+.square {
   margin: auto;
 }
 
-.wrapper {
-  height: 87%;
+.col {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 0;
+  flex-grow: 1;
 }
 
-h3 {
-  padding-top: 2vh;
+
+.center {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  flex-direction: row;
 }
 
 </style>
 <template>
   <section>
     <div class="hero is-small">
-      <div class="columns is-gapless picto">
-        <div class="column is-6">
+      <div class="columns is-gapless picto is-multiline">
+        <div class="column is-6-desktop is-12-tablet">
           <img src="../assets/img/large/type.jpg">
         </div>
-        <div class="column triple is-centered">
-          <div v-for="m in massages" class="column is-4 card is-centered massage-thumb">
-            <div class="wrapper">
-              <figure class="card card-header center is-square">
-                <img :src="m.picture" alt="" class="square">
+        <div class="column  is-6-desktop is-12-tablet is-multiline">
+          <div v-for="m in massages" class="card column  is-4-desktop is-12-tablet is-12-mobile">
+            <div class='card-content center'>
+              <figure class="center">
+                <img :src="m.picture" alt="" class="full">
               </figure>
-              <h3 class="title is-3">{{m.name}}</h3>
-              <div class='card-body'>
+              <div class="card-content col">
+                <h3 class="card-title">{{m.name}}</h3>
                 <p>{{m.description.split('.').slice(0,2).join('.')}}</p>
+                <div class="center">
+                  <button class="pulse reserve">RESERVER</button>
+                </div>
               </div>
-            </div>
-            <div class="card-footer autofix  center is-centered">
-              <button class="pulse reserve">RESERVER</button>
             </div>
           </div>
         </div>

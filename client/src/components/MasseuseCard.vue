@@ -91,7 +91,7 @@ button.reserve {
 	color: #f9f9f9;
 	border-radius: 1vh;
 	border: solid 1px #f39c12;
-	background: rgba(230, 126, 34, 0.8);
+	background: var(--mm);
 	text-align: center;
 }
 
@@ -109,14 +109,14 @@ button.reserve {
 	color: #f9f9f9;
 	border-radius: 1vh;
 	border: solid 1px #f39c12;
-	background: rgba(230, 126, 34, 0.8);
+	background: var(--mm);
 	text-align: center;
 	justify-content: center;
 	align-items: center;
 }
 
 .title {
-	color: #f39c12;
+	color: var(--mm);
 }
 
 .autofix {
@@ -142,7 +142,7 @@ button.reserve {
 .circle {
 	border-radius: 100%;
 	overflow: hidden;
-	border: solid 3px #f39c12;
+	border: solid 3px var(--mm);
 }
 
 </style>

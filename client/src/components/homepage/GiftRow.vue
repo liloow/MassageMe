@@ -80,11 +80,7 @@ button:focus {
 	top: 4px;
 }
 
-.fifty {
-	height: 50%;
-	width: 100%;
-	margin: auto;
-}
+
 
 button.reserve {
 	background-color: rgb(255, 0, 0, 0.5);
@@ -96,7 +92,7 @@ button.reserve {
 	color: #f9f9f9;
 	border-radius: 1vh;
 	border: solid 1px #f39c12;
-	background: rgba(230, 126, 34, 0.8);
+	background: var(--mm);
 	text-align: center;
 }
 
@@ -114,12 +110,24 @@ button.reserve {
 	margin-top: 5vh;
 }
 
+.motto {
+
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	font-style: italic;
+}
+
 </style>
 <template>
 	<section class="hero">
-		<div class="columns is-gapless">
-			<div class="column is-4 content">
-				<div class="row fifty">
+		<div class="columns is-multiline is-gapless">
+			<div class="column is-4-desktop is-12-tablet content">
+				<div class="motto hero  is-primary ">
+					<h1 class="title is-1">"Laissez le massage venir a vous"</h1>
+				</div>
+				<div class="row ">
 					<article class="text-snip">
 						<h2 class="title is-2 bold">Offrez un massage</h2>
 						<p class="content ">Envie de faire plaisir de manière originale à un ami ou à un proche ? Offrez lui l'expérience MassageMe à domicile.</p>
@@ -130,11 +138,8 @@ button.reserve {
 						</div>
 					</article>
 				</div>
-				<div class="fifty hero is-primary">
-					TEST
-				</div>
 			</div>
-			<div class="column is-8">
+			<div class="column is-8-desktop is-12-tablet ">
 				<img src="../../assets/img/large/tshirt.jpg" alt="">
 			</div>
 		</div>

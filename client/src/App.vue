@@ -1,24 +1,26 @@
 <style lang="scss">
 #app {
   font-family: 'Roboto Slab', serif;
-  min-height: 93vh;
-  max-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   background-color: #f9f9f9;
-  margin-top: 10vh
+  margin-top: 8vh;
+  --mm: #044169;
 }
+
 
 
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
-$orange:#0b4269;
-$orange-invert: findColorInvert($orange);
-$colors:( "primary":($orange, $orange-invert));
+$mm:#044169;
+$mm-invert: findColorInvert($mm);
+$white: #f9f9f9;
+$colors:( "primary":($mm, $mm-invert));
 $navbar-height: 7vh;
 $navbar-item-img-max-height: 6.5vh;
-$navbar-background-color:$orange;
+$navbar-background-color:$white;
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";

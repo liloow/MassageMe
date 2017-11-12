@@ -1,16 +1,14 @@
 <style scoped="">
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 @keyframes checked-anim {
-  50% {
-    width: 1500px;
-    height: 900px;
-  }
+
   100% {
     width: 100vw;
     height: auto;
     border-radius: 0;
   }
 }
+
 
 @keyframes not-checked-anim {
   0% {
@@ -22,7 +20,7 @@
 li.nav,
 a.nav {
   margin: 0;
-  color: #ff9a58;
+  color: var(--mm);
   font: 14pt "Roboto", sans-serif;
   font-weight: 700;
   line-height: 1.8;
@@ -31,7 +29,6 @@ a.nav {
   list-style: none;
   outline: 0;
   display: none;
-  background: #f9f9f9;
 }
 
 #menu>li:nth-child(1) {
@@ -43,7 +40,7 @@ a.nav:focus {
   color: #333;
   background-color: #f9f9f9;
   ;
-  transition: all .5s;
+  transition: all 2.5s;
 }
 
 
@@ -55,13 +52,14 @@ a.nav:focus {
   text-align: right;
   width: 30px;
   height: 5px;
-  transition: .2s ease;
+  transition: .5s ease;
   cursor: pointer;
   z-index: 3;
   position: absolute;
   top: 2.5vw;
-  right: 2.5vw;
-  background: #ff9a58;
+  right: 2.5vw
+;
+  background: var(--mm);
 }
 
 #trigger {
@@ -84,7 +82,7 @@ a.nav:focus {
 #menu-toggle:checked+#trigger+#burger {
   top: 35px;
   transform: rotate(180deg);
-  transition: transform .2s ease;
+  transition: transform 1.2s ease;
 }
 
 #menu-toggle:checked+#trigger+#burger:before {
@@ -92,11 +90,11 @@ a.nav:focus {
   top: -2px;
   right: 18px;
   transform: rotate(45deg) translateX(-5px);
-  transition: transform .2s ease;
+  transition: transform 1.2s ease;
 }
 
 #menu-toggle:checked+#trigger+#burger+#menu {
-  animation: checked-anim 1s ease both;
+  animation: checked-anim 1.5s ease both;
 }
 
 #menu-toggle:checked+#trigger+#burger:after {
@@ -104,7 +102,7 @@ a.nav:focus {
   top: 2px;
   right: 18px;
   transform: rotate(-45deg) translateX(-5px);
-  transition: transform .2s ease;
+  transition: transform 1.2s ease;
 }
 
 #menu {
@@ -140,6 +138,7 @@ a.nav:focus {
 .navbar-start>a {
   margin-top: 1vh;
   margin-bottom: 1vh;
+  font-weight: 700;
 }
 
 .navbar-brand {
@@ -163,7 +162,7 @@ a.nav:focus {
   left: 0;
   right: 0;
   z-index: 1;
-  border-bottom: solid 2px #fffe28;
+  border-bottom: solid 2px var(--mm);
 }
 
 </style>

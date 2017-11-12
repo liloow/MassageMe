@@ -13,7 +13,7 @@
     justify-content: center
 }
 
-.userfields .controls input {
+#0b4269 .userfields .controls input {
     padding: 0.5rem;
     width: 90%;
 }

@@ -91,13 +91,13 @@ button.reserve {
 	color: #f9f9f9;
 	border-radius: 1vh;
 	border: solid 1px #f39c12;
-	background: rgba(230, 126, 34, 0.8);
+	background: var(--mm);
 	text-align: center;
 }
 
 </style>
 <template>
-	<section class="hero is-small is-primary">
+	<section class="hero is-small is-white">
 		<div class="hero-body padding-2">
 			<div class="columns is-centered picto">
 				<div class="column is-3">

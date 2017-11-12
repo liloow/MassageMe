@@ -1,9 +1,8 @@
 <style lang="css" scoped>
 article {
-    width: 600px;
     max-width: 90%;
     margin: auto;
-    border: 2px solid #ff9a58;
+    border: 2px solid var(--mm);
     border-radius: 3%;
     padding: 2%
 }
@@ -12,6 +11,7 @@ article {
     border-radius: 1rem;
     text-align: center;
     margin: auto;
+    color: #f9f9f9;
 }
 
 #addresse {
@@ -45,10 +45,10 @@ article {
             <div class=" row content">
                 <article class="message is-primary">
                     <div class="row message-header ">
-                        <h2>Reservez votre bon cadeau</h2>
+                        <h2 class="title is-3 message-header">Reservez votre bon cadeau</h2>
                     </div>
                     <div class=" columns">
-                        <div class="column is-narrow-desktop img">
+                        <div class="column is-hidden-mobile img">
                             <img src="../../../assets/img/gift.jpeg" alt="Gift Image" id="gift">
                         </div>
                         <div class="column ">
