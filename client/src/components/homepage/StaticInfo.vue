@@ -112,23 +112,10 @@ h3 {}
     <div class="hero is-small">
       <div class="columns is-gapless picto is-multiline">
         <div class="column is-6-desktop is-12-tablet">
-          <img src="../assets/img/large/type.jpg">
+          <img src="../../assets/img/large/type.jpg">
         </div>
-        <div class="column  is-6-desktop is-12-tablet is-multiline">
-          <div v-for="m in massages" class="card column  is-4-desktop is-12-tablet is-12-mobile">
-            <div class='card-content center'>
-              <figure class="center">
-                <img :src="m.picture" alt="" class="full">
-              </figure>
-              <div class="card-content col">
-                <h3 class="card-title">{{m.name}}</h3>
-                <p>{{m.description.split('.').slice(0,2).join('.')}}</p>
-                <div class="center">
-                  <button class="pulse reserve">RESERVER</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="columns column  is-6-desktop is-12-tablet">
+        </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 <style lang="scss">
 #app {
-  font-family: 'Roboto Slab', serif;
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -24,6 +23,7 @@ $navbar-background-color:$white;
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+
 
 </style>
 <template>

@@ -122,11 +122,11 @@ button.reserve {
 </style>
 <template>
 	<section class="hero">
-		<div class="columns is-multiline is-gapless">
-			<div class="column is-4-desktop is-12-tablet content">
-				<div class="motto hero  is-primary ">
+				<div class="motto hero-body hero is-primary ">
 					<h1 class="title is-1">"Laissez le massage venir a vous"</h1>
 				</div>
+		<div class="columns is-multiline is-gapless">
+			<div class="column is-4-desktop is-12-tablet content">
 				<div class="row ">
 					<article class="text-snip">
 						<h2 class="title is-2 bold">Offrez un massage</h2>

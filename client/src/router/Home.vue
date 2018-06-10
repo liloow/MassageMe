@@ -1,5 +1,5 @@
 <style lang="css" scoped>
-
+@import '../assets/stylesheets/typo.css';
 
 </style>
 <template>
@@ -8,6 +8,7 @@
         <reservation-row></reservation-row>
         <picto-row></picto-row>
         <static-info></static-info>
+        <services></services>
         <gift-row></gift-row>
         <carousel-row></carousel-row>
         <div class="columns columns-2">
@@ -20,7 +21,8 @@ import {
 } from '@/api/data'
 import StripeCheckout from '@/components/reservation/stripe/StripeCheckout'
 import AnnouncementBar from '@/components/AnnouncementBar'
-import StaticInfo from '@/components/StaticInfo'
+import StaticInfo from '@/components/homepage/StaticInfo'
+import Services from '@/components/homepage/Services'
 import ReservationRow from '@/components/homepage/ReservationRow'
 import PictoRow from '@/components/homepage/PictoRow'
 import GiftRow from '@/components/homepage/GiftRow'
@@ -33,6 +35,7 @@ export default {
     },
     components: {
         AnnouncementBar,
+        Services,
         StaticInfo,
         StripeCheckout,
         ReservationRow,
